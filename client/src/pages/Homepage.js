@@ -10,7 +10,7 @@ class Homepage extends Component {
     return (
       <Container fluid>
         <Row>
-          <Col size="md-12">
+          <Col md="12" sm="12">
             <Jumbotron/>
           </Col>
         </Row>
