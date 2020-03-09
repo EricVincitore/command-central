@@ -4,6 +4,7 @@ import Jumbotron from "../components/Jumbotron";
 import { Button } from 'reactstrap';
 import {Input} from "../components/Form";
 import API from "../utils/API";
+import { List, ListItem } from "../components/List";
 
 
 class Database extends Component {
@@ -14,6 +15,7 @@ class Database extends Component {
         set: "",
         rarity: "",
         description: "",
+        commanderLegal:"",
         price: "",
         image: ""
     };
@@ -25,7 +27,7 @@ class Database extends Component {
             console.log(res.data)
             this.setState({ cards: res.data })
         })
-          .catch(err => console.log(err));
+        .catch(err => console.log(err));
     };
 
     handleInputChange = event => {
@@ -38,9 +40,17 @@ class Database extends Component {
     handleFormSubmit = event => {
         event.preventDefault();
         if (this.state.name) {
-          this.findCard(this.state.name)
+            this.findCard(this.state.name)
         }
     };
+
+    handleOracleSubmit = event => {
+        event.preventDefault();
+        if (this.state.name) {
+            this.findCard("o:" + this.state.name)
+        }
+    };
+ 
  
 
   render() {
@@ -52,7 +62,7 @@ class Database extends Component {
           </Col>
         </Row>
         <Row>
-            <Col sm="12" md="6">
+            <Col sm="12" md="12">
                 <Input
                     value={this.state.name}
                     onChange={this.handleInputChange}
@@ -65,9 +75,25 @@ class Database extends Component {
                 </Button>{' '}
                 <Button color="info"
                     disabled={!(this.state.name)}
-                    onClick={this.handleFormSubmit}>Search by Text
+                    onClick={this.handleOracleSubmit}>Search by Text
                 </Button>{' '}
             </Col>
+        </Row>
+        <Row>
+          <Col size="md-12 sm-12">
+            <h1>Results</h1>
+            {this.state.cards.length ? (
+              <List>
+                {this.state.cards.map(card => (
+                  <ListItem key={card.id}>
+                    <h4>{card.name}</h4>
+                  </ListItem>
+                ))}
+              </List>
+            ) : (
+              <h3>No Results to Display</h3>
+            )}
+          </Col>
         </Row>
 
       </Container>
