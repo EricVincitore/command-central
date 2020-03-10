@@ -57,7 +57,7 @@ class Login extends Component {
                     <Row>
                         <Col md="1"/>
                         <Col md="8" sm="12">
-                        <Link to="/signup"><Button color="info">Sign Up</Button></Link>
+                        <Link to="/signup"><Button color="info">Sign Up with Command Central</Button></Link>
                         </Col>
                     </Row>
                     <br/> 

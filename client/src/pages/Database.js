@@ -20,12 +20,11 @@ class Database extends Component {
         image: ""
     };
 
-
     findCard = (query) => {
         API.search(query)
         .then(res => {
-            console.log(res.data)
-            this.setState({ cards: res.data })
+            console.log(res.data.data)
+            this.setState({ cards: res.data.data })
         })
         .catch(err => console.log(err));
     };
@@ -50,8 +49,6 @@ class Database extends Component {
             this.findCard("o:" + this.state.name)
         }
     };
- 
- 
 
   render() {
     return (
@@ -85,8 +82,17 @@ class Database extends Component {
             {this.state.cards.length ? (
               <List>
                 {this.state.cards.map(card => (
-                  <ListItem key={card.data.id}>
+                  <ListItem key={card.id}>
+                    {/* <img src={card.image_uris.small} alt={card.name}/> */}
                     <h4>{card.name}</h4>
+                    <h6>{card.mana_cost}</h6>
+                    <h6>{card.type_line}</h6>
+                    <h6>{card.set_name}</h6>
+                    <h6>{card.rarity}</h6>
+                    <p>{card.oracle_text}</p>
+                    <p>Commander Legality: {card.legalities.commander}</p>
+                    <p>Price in USD: {card.prices.usd}</p>
+                    <p>Foil Price in USD: {card.prices.usd_foil}</p>
                   </ListItem>
                 ))}
               </List>
