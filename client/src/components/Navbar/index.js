@@ -33,7 +33,7 @@ const Example = (props) => {
               <NavLink href="/Resources">Resources</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/">Logout</NavLink>
+              <NavLink href="/login">Login</NavLink>
             </NavItem>
           </Nav>
         </Collapse>

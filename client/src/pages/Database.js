@@ -85,7 +85,7 @@ class Database extends Component {
             {this.state.cards.length ? (
               <List>
                 {this.state.cards.map(card => (
-                  <ListItem key={card.id}>
+                  <ListItem key={card.data.id}>
                     <h4>{card.name}</h4>
                   </ListItem>
                 ))}

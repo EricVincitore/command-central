@@ -2,23 +2,27 @@ var mongoose = require("mongoose");
 
 var Schema = mongoose.Schema;
 
-var CommandZoneSchema = new Schema({
+var CardsSchema = new Schema({
 
-    title: {
+    name: {
       type: String,
       required: true
     },
-    description: {
+    cmc: {
+        type: String,
+        required: true
+    },
+    set: {
       type: String,
       required: true
     },
-    link: {
+    description :{
       type: String,
       required: true
     }
 
 });
 
-var CommandZone = mongoose.model("CommandZone", CommandZoneSchema);
+var Cards = mongoose.model("Cards", CardsSchema);
 
-module.exports = CommandZone;
+module.exports = Cards;

@@ -6,6 +6,7 @@ import Metagame from "./pages/Metagame";
 import CardDatabase from "./pages/Database";
 import Resources from "./pages/Resources"
 import NoMatch from "./pages/NoMatch";
+import SignUp from "./pages/SignUp"
 import Navbar from "./components/Navbar";
 import "./App.css";
 
@@ -15,11 +16,13 @@ function App() {
       <div>
         <Navbar />
         <Switch>
-          <Route exact path="/" component={Login} />
+          <Route exact path="/" component={Homepage} />
           <Route exact path="/homepage" component={Homepage} />
           <Route exact path="/metagame" component={Metagame} />
           <Route exact path="/cardDatabase" component={CardDatabase} />
           <Route exact path="/resources" component={Resources} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/signUp" component={SignUp} />
           <Route component={NoMatch} />
         </Switch>
       </div>

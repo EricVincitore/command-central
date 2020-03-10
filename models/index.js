@@ -3,5 +3,7 @@ module.exports = {
     Metagame: require("./metagame"),
     EdhRec: require("./edhRec"),
     CommandZone: require("./commandZone"),
-    Tcc: require("./tcc")
+    Tcc: require("./tcc"),
+    User: require("./user"),
+    Cards: require("./cards")
 }
