@@ -21,33 +21,49 @@ class Database extends Component {
     };
 
     findCard = (query) => {
-        API.search(query)
-        .then(res => {
-            console.log(res.data.data)
-            this.setState({ cards: res.data.data })
-        })
-        .catch(err => console.log(err));
+      API.search(query)
+      .then(res => {
+          console.log(res.data.data)
+          this.setState({ cards: res.data.data })
+      })
+      .catch(err => console.log(err));
     };
 
     handleInputChange = event => {
-        const { name, value } = event.target;
-        this.setState({
-          [name]: value
-        });
+      const { name, value } = event.target;
+      this.setState({
+        [name]: value
+      });
     };
     
     handleFormSubmit = event => {
-        event.preventDefault();
-        if (this.state.name) {
-            this.findCard(this.state.name)
-        }
+      event.preventDefault();
+      if (this.state.name) {
+          this.findCard(this.state.name)
+      }
     };
 
     handleOracleSubmit = event => {
-        event.preventDefault();
-        if (this.state.name) {
-            this.findCard("o:" + this.state.name)
-        }
+      event.preventDefault();
+      if (this.state.name) {
+          this.findCard("o:" + this.state.name)
+      }
+    };
+
+    checkPrice = (price) => {
+      if (price === null) {
+        return "Price Unavailable"
+      } else {
+        return price
+      };
+    };
+
+    checkImg = (img) => {
+      if (img === null || img === undefined) {
+        return  <p>no image available</p>
+      } else {
+        return <img className="cardImg" src={img} alt="Card Image"/>
+      };
     };
 
   render() {
@@ -81,9 +97,12 @@ class Database extends Component {
             <h1>Results</h1>
             {this.state.cards.length ? (
               <List>
-                {this.state.cards.map(card => (
-                  <ListItem key={card.id}>
-                    {/* <img src={card.image_uris.small} alt={card.name}/> */}
+                {console.log(this.state.cards)}
+                {this.state.cards.map(card => {
+                      //  card === undefined || card===null?( "no display" ):(
+                  return (  
+                    <ListItem>
+                    {this.checkImg(card.image_uris.small)}
                     <h4>{card.name}</h4>
                     <h6>{card.mana_cost}</h6>
                     <h6>{card.type_line}</h6>
@@ -91,10 +110,17 @@ class Database extends Component {
                     <h6>{card.rarity}</h6>
                     <p>{card.oracle_text}</p>
                     <p>Commander Legality: {card.legalities.commander}</p>
-                    <p>Price in USD: {card.prices.usd}</p>
-                    <p>Foil Price in USD: {card.prices.usd_foil}</p>
-                  </ListItem>
-                ))}
+                    <p>Price in USD: {this.checkPrice(card.prices.usd)}</p>
+                    <p>Foil Price in USD: {this.checkPrice(card.prices.usd_foil)}</p>
+                    </ListItem>
+                   
+                  )
+
+                })
+                  
+              }
+                  
+              
               </List>
             ) : (
               <h3>No Results to Display</h3>
