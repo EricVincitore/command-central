@@ -8,6 +8,7 @@ var CommandZoneSchema = new Schema({
       type: String,
       required: true
     },
+    img: String,
     description: {
       type: String,
       required: true

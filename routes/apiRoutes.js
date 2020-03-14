@@ -16,77 +16,155 @@ function apiRoutes (app) {
        }) 
     });
 
-    // app.get("/metagame", function (req, res) {
-    //     axios.get("https://www.mtggoldfish.com/metagame/commander#paper").then(function (response) {
+    app.get("/scrape", function (req, res) {
+        axios.get("https://www.mtggoldfish.com/metagame/commander#paper").then(function (response) {
 
-    //         // Load the HTML into cheerio and save it to a variable
-    //         // '$' becomes a shorthand for cheerio's selector commands, much like jQuery's '$'
-    //         let $ = cheerio.load(response.data);
+            // Load the HTML into cheerio and save it to a variable
+            // '$' becomes a shorthand for cheerio's selector commands, much like jQuery's '$'
+            let $ = cheerio.load(response.data);
 
-    //         // Select each element in the HTML body from which you want information.
-    //         // NOTE: Cheerio selectors function similarly to jQuery's selectors,
-    //         // but be sure to visit the package's npm page to see how it works
-    //         $(".archetype-tile").each(function (i, element) {
+            // Select each element in the HTML body from which you want information.
+            // NOTE: Cheerio selectors function similarly to jQuery's selectors,
+            // but be sure to visit the package's npm page to see how it works
+            $(".archetype-tile").each(function (i, element) {
 
-    //             let result = {};
+                let result = {};
 
-    //             //result.img =  $(element).children(".article-tile-image").children(".card-title").children(".card-img-tile").attr("style");
-    //             result.title = $(element).children(".archetype-tile-description-wrapper").children(".archetype-tile-description").children(".title").children(".deck-price-paper").text();
-    //             result.meta = $(element).children(".archetype-tile-statistics").children(".stats").children(".percentage").text();
-    //             result.link = "https://www.mtggoldfish.com" + $(element).children(".archetype-tile-description-wrapper").children(".archetype-tile-description").children(".title").children(".deck-price-paper").attr("href");
-    //             console.log(result)
-    //             db.Metagame.create(result)
-    //                 .then(function (dbMetagame) {
-    //                     // View the added result in the console
-    //                     console.log(result)
-    //                     console.log(dbMetagame);
-    //                 })
-    //                 .catch(function (err) {
-    //                     // If an error occurred, log it
-    //                     console.log(err);
-    //                 });
-
-
-    //         });
-    //         res.redirect("/");
-    //     });
-    // });
-
-    // app.get("/budgetscrape", function (req, res) {
-    //     axios.get("https://www.mtggoldfish.com/metagame/commander#paper").then(function (response) {
-
-    //         // Load the HTML into cheerio and save it to a variable
-    //         // '$' becomes a shorthand for cheerio's selector commands, much like jQuery's '$'
-    //         let $ = cheerio.load(response.data);
-
-    //         // Select each element in the HTML body from which you want information.
-    //         // NOTE: Cheerio selectors function similarly to jQuery's selectors,
-    //         // but be sure to visit the package's npm page to see how it works
-    //         $(".archetype-tile").each(function (i, element) {
-
-    //             let result = {};
-
-    //             //result.img =  $(element).children(".article-tile-image").children(".card-title").children(".card-img-tile").attr("style");
-    //             result.title = $(element).children(".archetype-tile-description-wrapper").children(".archetype-tile-description").children(".title").children(".deck-price-paper").text();
-    //             result.meta = $(element).children(".archetype-tile-statistics").children(".stats").children(".percentage").text();
-    //             result.link = "https://www.mtggoldfish.com" + $(element).children(".archetype-tile-description-wrapper").children(".archetype-tile-description").children(".title").children(".deck-price-paper").attr("href");
-
-    //             db.BudgetMetagame.create(result)
-    //                 .then(function (dbBudgetMetagame) {
-    //                     // View the added result in the console
-    //                     console.log(result)
-    //                     console.log(dbBudgetMetagame);
-    //                 })
-    //                 .catch(function (err) {
-    //                     // If an error occurred, log it
-    //                     console.log(err);
-    //                 });
+                //result.img =  $(element).children(".article-tile-image").children(".card-title").children(".card-img-tile").attr("style");
+                result.title = $(element).children(".archetype-tile-description-wrapper").children(".archetype-tile-description").children(".title").children(".deck-price-paper").text();
+                result.meta = $(element).children(".archetype-tile-statistics").children(".table").children(".percentage").text();
+                result.link = "https://www.mtggoldfish.com" + $(element).children(".archetype-tile-description-wrapper").children(".archetype-tile-description").children(".title").children(".deck-price-paper").children().attr("href");
+                console.log(result)
+                db.Metagame.create(result)
+                    .then(function (dbMetagame) {
+                        // View the added result in the console
+                        console.log(result)
+                        console.log(dbMetagame);
+                    })
+                    .catch(function (err) {
+                        // If an error occurred, log it
+                        console.log(err);
+                    });
 
 
-    //         });
-    //         res.redirect("/");
-    //     });
-    // });
+            });
+            res.redirect("/");
+        });
+    });
+
+    app.get("/edhrecscrape", function (req, res) {
+        axios.get("https://articles.edhrec.com/").then(function (response) {
+
+            // Load the HTML into cheerio and save it to a variable
+            // '$' becomes a shorthand for cheerio's selector commands, much like jQuery's '$'
+            let $ = cheerio.load(response.data);
+
+            // Select each element in the HTML body from which you want information.
+            // NOTE: Cheerio selectors function similarly to jQuery's selectors,
+            // but be sure to visit the package's npm page to see how it works
+            $(".blog-post").each(function (i, element) {
+
+                let result = {};
+
+                //result.img =  $(element).children(".article-tile-image").children(".card-title").children(".card-img-tile").attr("style");
+                result.title = $(element).children(".blog-post-title").children().text();
+                result.img = $(element).children(".preview").children(".card").children(".attachment-thumbnail").attr("src")
+                result.description = $(element).children(".preview").children(".post").children().children().text();
+                result.link = $(element).children(".blog-post-title").children().attr("href");
+                console.log(result)
+                console.log("____________________________________________________________________")
+                db.EdhRec.create(result)
+                    .then(function (dbEdhrec) {
+                        // View the added result in the console
+                        
+                        console.log(dbEdhrec);
+                    })
+                    .catch(function (err) {
+                        // If an error occurred, log it
+                        console.log(err);
+                    });
+
+
+            });
+            res.redirect("/");
+        });
+    });
+
+    app.get("/czscrape", function (req, res) {
+        axios.get("https://commandzone.collected.company/").then(function (response) {
+
+            // Load the HTML into cheerio and save it to a variable
+            // '$' becomes a shorthand for cheerio's selector commands, much like jQuery's '$'
+            let $ = cheerio.load(response.data);
+
+            // Select each element in the HTML body from which you want information.
+            // NOTE: Cheerio selectors function similarly to jQuery's selectors,
+            // but be sure to visit the package's npm page to see how it works
+            $(".episode").each(function (i, element) {
+
+                let result = {};
+
+                //result.img =  $(element).children(".article-tile-image").children(".card-title").children(".card-img-tile").attr("style");
+                result.title = $(element).children(".col-9").children("h1").children().text();
+                result.img = $(element).children(".col-3").children(".episode-image").attr("src")
+                result.description = $(element).children(".col-9").text();
+                result.link = "https://commandzone.collected.company" + $(element).children(".col-9").children("h1").children().attr("href");
+                console.log(result)
+                console.log("____________________________________________________________________")
+                db.CommandZone.create(result)
+                    .then(function (dbCommandZone) {
+                        // View the added result in the console
+                        
+                        console.log(dbCommandZone);
+                    })
+                    .catch(function (err) {
+                        // If an error occurred, log it
+                        console.log(err);
+                    });
+
+
+            });
+            res.redirect("/");
+        });
+    });
+
+    app.get("/tccscrape", function (req, res) {
+        axios.get("https://www.tolariancommunitycollege.com/category/youtube/commander-edh/").then(function (response) {
+
+            // Load the HTML into cheerio and save it to a variable
+            // '$' becomes a shorthand for cheerio's selector commands, much like jQuery's '$'
+            let $ = cheerio.load(response.data);
+
+            // Select each element in the HTML body from which you want information.
+            // NOTE: Cheerio selectors function similarly to jQuery's selectors,
+            // but be sure to visit the package's npm page to see how it works
+            $(".blog-item-wrap").each(function (i, element) {
+
+                let result = {};
+
+                //result.img =  $(element).children(".article-tile-image").children(".card-title").children(".card-img-tile").attr("style");
+                result.title = $(element).children(".post-inner-content").children("entry-title").children().text();
+                result.img = $(element).children(".videoWrapper").children().attr("src")
+                result.description = $(element).children(".entry-content").children("p").text();
+                result.link = $(element).children(".post-inner-content").children("entry-title").children().attr("href");
+                console.log(result)
+                console.log("____________________________________________________________________")
+                db.Tcc.create(result)
+                    .then(function (dbTcc) {
+                        // View the added result in the console
+                        
+                        //console.log(dbTcc);
+                    })
+                    .catch(function (err) {
+                        // If an error occurred, log it
+                        console.log(err);
+                    });
+
+
+            });
+            res.redirect("/");
+        });
+    });
 
     app.post('/register', function(req, res){
        
@@ -108,15 +186,16 @@ function apiRoutes (app) {
     app.post('/login',
         passport.authenticate('local'),
         function(req, res) {
-        // console.log(req.user)
+            //console.log(req.user)
             res.send(req.user);
         }
     );
 
     // Endpoint to get current user
     app.get('/user', function(req, res){
-        console.log(req.user)
-        console.log("user route")
+        // console.log("user route")
+        // console.log(req.user)
+        // console.log("user route")
         res.send(req.user);
     })
 
