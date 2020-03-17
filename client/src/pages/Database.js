@@ -9,15 +9,15 @@ import { List, ListItem } from "../components/List";
 
 class Database extends Component {
     state = {
-        cards: [],
-        name: "",
-        cmc: "",
-        set: "",
-        rarity: "",
-        description: "",
-        commanderLegal:"",
-        price: "",
-        image: ""
+      cards: [],
+      name: "",
+      cmc: "",
+      set: "",
+      rarity: "",
+      description: "",
+      commanderLegal:"",
+      price: "",
+      image: ""
     };
 
     findCard = (query) => {
@@ -58,13 +58,33 @@ class Database extends Component {
       };
     };
 
-    checkImg = (img) => {
-      if (img === null || img === undefined) {
-        return  <p>no image available</p>
+    // checkImg = (img) => {
+    //   if (img === null || img === undefined) {
+    //     return  <p>no image available</p>
+    //   } else {
+    //     return <img className="cardImg" src={img} alt="Card Image"/>
+    //   };
+    // };
+
+    checkImg = (layout) => {
+      if (layout === "transform") {
+        
+        //return <img className="cardImg" src={transform1} alt="Card Face 1"/>
+
+        
+        return console.log("transform")
+        
+        
       } else {
-        return <img className="cardImg" src={img} alt="Card Image"/>
+        //return <img className="cardImg" src={normal} alt="Card Face 2"/>
+        
+        
+        return console.log("normal")
+        
+        
       };
     };
+
 
   render() {
     return (
@@ -102,7 +122,7 @@ class Database extends Component {
                       //  card === undefined || card===null?( "no display" ):(
                   return (  
                     <ListItem>
-                    {this.checkImg(card.image_uris.small)}
+                    {this.checkImg(card.layout)}
                     <h4>{card.name}</h4>
                     <h6>{card.mana_cost}</h6>
                     <h6>{card.type_line}</h6>

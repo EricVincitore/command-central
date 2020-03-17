@@ -143,20 +143,20 @@ function apiRoutes (app) {
                 let result = {};
 
                 //result.img =  $(element).children(".article-tile-image").children(".card-title").children(".card-img-tile").attr("style");
-                result.title = $(element).children(".post-inner-content").children("entry-title").children().text();
+                result.title = $(element).children(".post-inner-content").children(".entry-header").children(".entry-title").children("a").text();
                 result.img = $(element).children(".videoWrapper").children().attr("src")
-                result.description = $(element).children(".entry-content").children("p").text();
-                result.link = $(element).children(".post-inner-content").children("entry-title").children().attr("href");
+                result.description = $(element).children(".post-inner-content").children(".entry-content").children("p").text();
+                result.link = $(element).children(".post-inner-content").children(".entry-header").children(".entry-title").children("a").attr("href");
                 console.log(result)
                 console.log("____________________________________________________________________")
                 db.Tcc.create(result)
                     .then(function (dbTcc) {
-                        // View the added result in the console
                         
-                        //console.log(dbTcc);
+                        
+                        console.log(dbTcc);
                     })
                     .catch(function (err) {
-                        // If an error occurred, log it
+                        
                         console.log(err);
                     });
 
@@ -164,6 +164,31 @@ function apiRoutes (app) {
             });
             res.redirect("/");
         });
+    });
+
+    app.get("/deleteHomepage", function (req, res) {
+        db.EdhRec.deleteMany({}).then(function (data) {
+            console.log("EdhRec Deleted")
+
+        }).catch(function (err) {
+            console.log(err)
+        });
+
+        db.CommandZone.deleteMany({}).then(function (data) {
+            console.log("Command Zone Deleted")
+
+        }).catch(function (err) {
+            console.log(err)
+        });
+
+        db.Tcc.deleteMany({}).then(function (data) {
+            console.log("TCC Deleted")
+
+        }).catch(function (err) {
+            console.log(err)
+        });
+        
+        res.redirect("/");
     });
 
     app.post('/register', function(req, res){

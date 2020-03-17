@@ -5,6 +5,9 @@ import Jumbotron from "../components/Jumbotron";
 
 class Homepage extends Component {
  
+  state = {
+    articles: []
+  };
 
   render() {
     return (
