@@ -69,18 +69,6 @@ function apiRoutes (app) {
                 result.description = $(element).children(".preview").children(".post").children().children().text();
                 result.link = $(element).children(".blog-post-title").children().attr("href");
                 articles.push(result)
-                
-                // db.EdhRec.create(result)
-                //     .then(function (dbEdhrec) {
-                //         // View the added result in the console
-                    
-                //     })
-                //     .catch(function (err) {
-                //         // If an error occurred, log it
-                //         console.log(err);
-                //     });
-
-
             });
             res.send(articles);
         });
@@ -105,17 +93,6 @@ function apiRoutes (app) {
                 result.img = $(element).children(".col-3").children(".episode-image").attr("src")
                 result.description = $(element).children(".col-9").text();
                 result.link = "https://commandzone.collected.company" + $(element).children(".col-9").children("h1").children().attr("href");
-                db.CommandZone.create(result)
-                    .then(function (dbCommandZone) {
-                        // View the added result in the console
-                        
-                    })
-                    .catch(function (err) {
-                        // If an error occurred, log it
-                        console.log(err);
-                    });
-
-
             });
             res.redirect("/");
         });
@@ -140,16 +117,6 @@ function apiRoutes (app) {
                 result.img = $(element).children(".videoWrapper").children().attr("src")
                 result.description = $(element).children(".post-inner-content").children(".entry-content").children("p").text();
                 result.link = $(element).children(".post-inner-content").children(".entry-header").children(".entry-title").children("a").attr("href");
-                db.Tcc.create(result)
-                    .then(function (dbTcc) {
-                        
-                    })
-                    .catch(function (err) {
-                        
-                        console.log(err);
-                    });
-
-
             });
             res.redirect("/");
         });

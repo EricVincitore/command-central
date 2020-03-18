@@ -24,29 +24,32 @@ class Homepage extends Component {
     })
     .catch(err => console.log(err));
   }
+
+  commandZone = () => {
+    API.commandZone()
+    .then(res => {
+      console.log(res)
+    this.setState({articles: res.data})
+    })
+    .catch(err => console.log(err));
+  }
+
+  tcc = () => {
+    API.tcc()
+    .then(res => {
+      console.log(res)
+    this.setState({articles: res.data})
+    })
+    .catch(err => console.log(err));
+  }
   
 
   handleSearch = event => {
     event.preventDefault();
-    API.deleteHomepage()
-    .then(res => {
-      console.log("deleted all databases for homepage");
-      this.edhRec()
-    })
-    .catch(err => console.log(err));
-
-    // API.commandZone()
-    // .then(res => {
-    //   this.setState({ CZArticles: res })
-    // })
-    // .catch(err => console.log(err));
-
-    // API.tcc()
-    // .then(res => {
-    //   this.setState({ TCCArticles: res })
-    // })
-    // .catch(err => console.log(err));
-
+    this.edhRec();
+    this.commandZone();
+    this.tcc();
+    
   };
 
 

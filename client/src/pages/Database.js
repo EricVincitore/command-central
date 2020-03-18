@@ -105,7 +105,14 @@ class Database extends Component {
                     <h6>{card.type_line}</h6>
                     <h6>{card.set_name}</h6>
                     <h6>{card.rarity}</h6>
-                    <p>{card.oracle_text}</p>
+                    {card.layout === "transform" ? (
+                      <div>
+                        <p>{card.card_faces[0].name}: {card.card_faces[0].oracle_text}</p>
+                        <p>{card.card_faces[1].name}: {card.card_faces[1].oracle_text}</p>
+                      </div>
+                    ):(
+                      <p>{card.oracle_text}</p>
+                    )}
                     <p>Commander Legality: {card.legalities.commander}</p>
                     <p>Price in USD: {this.checkPrice(card.prices.usd)}</p>
                     <p>Foil Price in USD: {this.checkPrice(card.prices.usd_foil)}</p>
