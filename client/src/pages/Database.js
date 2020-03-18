@@ -23,7 +23,6 @@ class Database extends Component {
     findCard = (query) => {
       API.search(query)
       .then(res => {
-          console.log(res.data.data)
           this.setState({ cards: res.data.data })
       })
       .catch(err => console.log(err));
@@ -58,34 +57,6 @@ class Database extends Component {
       };
     };
 
-    // checkImg = (img) => {
-    //   if (img === null || img === undefined) {
-    //     return  <p>no image available</p>
-    //   } else {
-    //     return <img className="cardImg" src={img} alt="Card Image"/>
-    //   };
-    // };
-
-    checkImg = (layout) => {
-      if (layout === "transform") {
-        
-        //return <img className="cardImg" src={transform1} alt="Card Face 1"/>
-
-        
-        return console.log("transform")
-        
-        
-      } else {
-        //return <img className="cardImg" src={normal} alt="Card Face 2"/>
-        
-        
-        return console.log("normal")
-        
-        
-      };
-    };
-
-
   render() {
     return (
       <Container fluid>
@@ -119,10 +90,16 @@ class Database extends Component {
               <List>
                 {console.log(this.state.cards)}
                 {this.state.cards.map(card => {
-                      //  card === undefined || card===null?( "no display" ):(
                   return (  
                     <ListItem>
-                    {this.checkImg(card.layout)}
+                    {card.layout === "transform" ? (
+                      <div>
+                        <img className="cardImg" src={card.card_faces[1].image_uris.small} alt={card.card_faces[1].name}/>
+                        <img className="cardImg" src={card.card_faces[0].image_uris.small} alt={card.card_faces[0].name}/>
+                      </div>
+                    ):(
+                      <img className="cardImg" src={card.image_uris.small} alt={card.name}/>
+                    )}
                     <h4>{card.name}</h4>
                     <h6>{card.mana_cost}</h6>
                     <h6>{card.type_line}</h6>
@@ -133,21 +110,15 @@ class Database extends Component {
                     <p>Price in USD: {this.checkPrice(card.prices.usd)}</p>
                     <p>Foil Price in USD: {this.checkPrice(card.prices.usd_foil)}</p>
                     </ListItem>
-                   
                   )
-
                 })
-                  
               }
-                  
-              
               </List>
             ) : (
               <h3>No Results to Display</h3>
             )}
           </Col>
         </Row>
-
       </Container>
     );
   }

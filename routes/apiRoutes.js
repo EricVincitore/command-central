@@ -11,7 +11,6 @@ function apiRoutes (app) {
     app.get("/api/scryfall/:query", function (req, res) {
         let searchTerm = req.params.query
        axios.get(BASEURL + searchTerm).then(function (response) {
-            console.log(response.data)
             res.json(response.data)
        }) 
     });
@@ -34,7 +33,6 @@ function apiRoutes (app) {
                 result.title = $(element).children(".archetype-tile-description-wrapper").children(".archetype-tile-description").children(".title").children(".deck-price-paper").text();
                 result.meta = $(element).children(".archetype-tile-statistics").children(".table").children(".percentage").text();
                 result.link = "https://www.mtggoldfish.com" + $(element).children(".archetype-tile-description-wrapper").children(".archetype-tile-description").children(".title").children(".deck-price-paper").children().attr("href");
-                console.log(result)
                 db.Metagame.create(result)
                     .then(function (dbMetagame) {
                         // View the added result in the console
@@ -59,9 +57,8 @@ function apiRoutes (app) {
             // '$' becomes a shorthand for cheerio's selector commands, much like jQuery's '$'
             let $ = cheerio.load(response.data);
 
-            // Select each element in the HTML body from which you want information.
-            // NOTE: Cheerio selectors function similarly to jQuery's selectors,
-            // but be sure to visit the package's npm page to see how it works
+            articles = [];
+
             $(".blog-post").each(function (i, element) {
 
                 let result = {};
@@ -71,22 +68,21 @@ function apiRoutes (app) {
                 result.img = $(element).children(".preview").children(".card").children(".attachment-thumbnail").attr("src")
                 result.description = $(element).children(".preview").children(".post").children().children().text();
                 result.link = $(element).children(".blog-post-title").children().attr("href");
-                console.log(result)
-                console.log("____________________________________________________________________")
-                db.EdhRec.create(result)
-                    .then(function (dbEdhrec) {
-                        // View the added result in the console
-                        
-                        console.log(dbEdhrec);
-                    })
-                    .catch(function (err) {
-                        // If an error occurred, log it
-                        console.log(err);
-                    });
+                articles.push(result)
+                
+                // db.EdhRec.create(result)
+                //     .then(function (dbEdhrec) {
+                //         // View the added result in the console
+                    
+                //     })
+                //     .catch(function (err) {
+                //         // If an error occurred, log it
+                //         console.log(err);
+                //     });
 
 
             });
-            res.redirect("/");
+            res.send(articles);
         });
     });
 
@@ -109,13 +105,10 @@ function apiRoutes (app) {
                 result.img = $(element).children(".col-3").children(".episode-image").attr("src")
                 result.description = $(element).children(".col-9").text();
                 result.link = "https://commandzone.collected.company" + $(element).children(".col-9").children("h1").children().attr("href");
-                console.log(result)
-                console.log("____________________________________________________________________")
                 db.CommandZone.create(result)
                     .then(function (dbCommandZone) {
                         // View the added result in the console
                         
-                        console.log(dbCommandZone);
                     })
                     .catch(function (err) {
                         // If an error occurred, log it
@@ -147,13 +140,9 @@ function apiRoutes (app) {
                 result.img = $(element).children(".videoWrapper").children().attr("src")
                 result.description = $(element).children(".post-inner-content").children(".entry-content").children("p").text();
                 result.link = $(element).children(".post-inner-content").children(".entry-header").children(".entry-title").children("a").attr("href");
-                console.log(result)
-                console.log("____________________________________________________________________")
                 db.Tcc.create(result)
                     .then(function (dbTcc) {
                         
-                        
-                        console.log(dbTcc);
                     })
                     .catch(function (err) {
                         
