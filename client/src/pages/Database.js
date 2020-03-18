@@ -10,6 +10,7 @@ import { List, ListItem } from "../components/List";
 class Database extends Component {
     state = {
       cards: [],
+      layout:"",
       name: "",
       cmc: "",
       set: "",

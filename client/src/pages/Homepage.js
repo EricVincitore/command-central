@@ -9,7 +9,9 @@ import { List, ListItem } from "../components/List";
 class Homepage extends Component {
  
   state = {
-    articles: [],
+    EdhRecArticles: [],
+    CZArticles: [],
+    TCCArticles: [],
     title: "",
     img: "",
     description: "",
@@ -20,7 +22,7 @@ class Homepage extends Component {
     API.edhRec()
     .then(res => {
       console.log(res)
-    this.setState({articles: res.data})
+    this.setState({EdhRecArticles: res.data})
     })
     .catch(err => console.log(err));
   }
@@ -29,7 +31,7 @@ class Homepage extends Component {
     API.commandZone()
     .then(res => {
       console.log(res)
-    this.setState({articles: res.data})
+    this.setState({CZArticles: res.data})
     })
     .catch(err => console.log(err));
   }
@@ -38,7 +40,7 @@ class Homepage extends Component {
     API.tcc()
     .then(res => {
       console.log(res)
-    this.setState({articles: res.data})
+    this.setState({TCCArticles: res.data})
     })
     .catch(err => console.log(err));
   }
@@ -73,15 +75,19 @@ class Homepage extends Component {
         </Row>
         <Row>
           <Col md="4" sm="12">
-          {this.state.articles.length ? (
+          {this.state.EdhRecArticles.length ? (
               <List>
                 
-                {this.state.articles.map(article => {
-                  return (  
+                {this.state.EdhRecArticles.map(article => {
+                  return ( 
+                     
                     <ListItem key = {article.title}>
-
-                    <h4>{article.title}</h4>
-                    
+                      <a href={article.link}>
+                      <img class="articleImg" src = {article.img} alt="Article Image"/>
+                      <h4>{article.title}</h4>
+                      </a>
+                      <p>{article.description}</p>
+                     
                     </ListItem>
                   )
 
@@ -90,15 +96,58 @@ class Homepage extends Component {
               }
               </List>
             ) : (
-              <h3>Click the button above to see what is new with EdhRec</h3>
+              <h3>Click the button above to see what is new with EdhRec.</h3>
             )}
 
           </Col>
           <Col md="4" sm="12">
+            {this.state.CZArticles.length ? (
+                <List>
+                  
+                  {this.state.CZArticles.map(article => {
+                    return ( 
+                      
+                      <ListItem key = {article.title}>
+                        <a href={article.link}>
+                        <img class="articleImg" src = {article.img} alt="Article Image"/>
+                        <h4>{article.title}</h4>
+                        </a>
+                        <p>{article.description}</p>
+                        
+                      </ListItem>
+                    )
 
+                  })
+                    
+                }
+                </List>
+              ) : (
+                <h3>Click the button above to see what is new with the Command Zone.</h3>
+              )}
           </Col>
           <Col md="4" sm="12">
+          {this.state.TCCArticles.length ? (
+            <List>
+              
+              {this.state.TCCArticles.map(article => {
+                  return ( 
+                      
+                    <ListItem key = {article.title}>
+                      <iframe class="articleImg" src = {article.img} alt="Article Image"/>
+                      <a href={article.link}>
+                      <h4>{article.title}</h4>
+                      </a>
+                      <p>{article.description}</p>
+                      
+                    </ListItem>
+                  )
 
+                })    
+              }
+              </List>
+            ) : (
+              <h3>Click the button above to see what is new with Tolarian Community College.</h3>
+            )}
           </Col>
         </Row>
        
