@@ -1,15 +1,13 @@
 import axios from "axios";
 
-
-
 export default {
 
   search: function(query) {
     return axios.get("/api/scryfall/" + query);
   },
 
-  deleteHomepage: function() {
-    return axios.get("/deleteHomepage");
+  metagame: function() {
+    return axios.get("/metagameScrape");
   },
 
   edhRec: function() {
@@ -22,6 +20,22 @@ export default {
 
   tcc: function() {
     return axios.get("/tccscrape");
+  },
+
+  signUp: function(newUser) {
+    return axios.post("/register", newUser)
+  },
+
+  login: function(user) {
+    return axios.post("/login", user)
+  },
+
+  user: function() {
+    return axios.get("/user")
+  },
+
+  logout: function() {
+    return axios.get("/logout")
   }
   
 };

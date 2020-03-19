@@ -92,7 +92,7 @@ class Database extends Component {
                 {console.log(this.state.cards)}
                 {this.state.cards.map(card => {
                   return (  
-                    <ListItem>
+                    <ListItem key={card.name}>
                     {card.layout === "transform" ? (
                       <div>
                         <img className="cardImg" src={card.card_faces[1].image_uris.small} alt={card.card_faces[1].name}/>

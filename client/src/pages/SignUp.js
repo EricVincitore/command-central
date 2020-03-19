@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Container, Row, Col } from 'reactstrap';
 import Jumbotron from "../components/Jumbotron";
+import API from "../utils/API";
 import { 
     Button,
     Form,
@@ -14,6 +15,33 @@ import { Link } from "react-router-dom";
 
 
 class SignUp extends Component {
+
+  state = {
+    user: [],
+    email: "",
+    username: "",
+    password: ""
+  };
+
+  handleInputChange = (event) => {
+    const { name, value } = event.target;
+    console.log("___________________________")
+    console.log(event.target.value)
+      this.setState({
+        [name]: value
+      });
+  }
+
+  handleFormSubmit = (event) => {
+    API.signUp({
+      email: this.state.email,
+      username: this.state.username,
+      password: this.state.username
+    })
+    .then((data) => {
+      window.location.href = "/homepage"
+    })
+  }
  
 
   render() {
@@ -34,19 +62,23 @@ class SignUp extends Component {
                     <CardBody>
                     <Form>
                         <FormGroup>
+                            <Label for="exampleUsername">Username</Label>
+                            <Input type="text" onChange={this.handleInputChange} value={this.state.username} name="username" id="signUpUsername" placeholder="Your Username" />
+                        </FormGroup>
+                        <FormGroup>
                             <Label for="exampleEmail">Email</Label>
-                            <Input type="email" name="email" id="signUpEmail" placeholder="YourEmail@example.com" />
+                            <Input type="email" onChange={this.handleInputChange} value={this.state.email} name="email" id="signUpEmail" placeholder="YourEmail@example.com" />
                         </FormGroup>
                         <FormGroup>
                             <Label for="examplePassword">Password</Label>
-                            <Input type="password" name="password" id="SignUpPassword" placeholder="A Password you will Remember" />
+                            <Input type="password" onChange={this.handleInputChange} value={this.state.password} name="password" id="SignUpPassword" placeholder="A Password you will Remember" />
                         </FormGroup>
                         </Form>                    
                     </CardBody>
                     <Row>
                         <Col md="1" sm="1"/>
                         <Col md="8" sm="11">
-                        <Button color="info">Sign Up</Button>
+                        <Button onClick={this.handleFormSubmit} color="info">Sign Up</Button>
                         </Col>
                     </Row>
                     <br/>

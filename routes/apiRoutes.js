@@ -15,21 +15,24 @@ function apiRoutes (app) {
        }) 
     });
 
-    app.get("/scrape", function (req, res) {
+    app.get("/metagameScrape", function (req, res) {
         axios.get("https://www.mtggoldfish.com/metagame/commander#paper").then(function (response) {
 
             let $ = cheerio.load(response.data);
-            
+
             decks = [];
 
             $(".archetype-tile").each(function (i, element) {
 
                 let result = {};
-
+                
+                result.img = $(element).children(".archetype-tile-image").children(".card-tile").children(".card-img-tile").attr("style");
                 result.title = $(element).children(".archetype-tile-description-wrapper").children(".archetype-tile-description").children(".title").children(".deck-price-paper").text();
-                result.meta = $(element).children(".archetype-tile-statistics").children(".table").children(".percentage").text();
+                result.meta = $(element).children(".archetype-tile-statistics").children(".table").children("tbody").children().children(".percentage").text();
+                result.price = $(element).children(".archetype-tile-statistics").children(".table").children("tbody").children().children(".text-right").children(".deck-price-paper").text();
                 result.link = "https://www.mtggoldfish.com" + $(element).children(".archetype-tile-description-wrapper").children(".archetype-tile-description").children(".title").children(".deck-price-paper").children().attr("href");
-                decks.push(result)
+                console.log(result)
+                //decks.push(result)
                 
                 // db.Metagame.create(result)
                 //     .then(function (dbMetagame) {
@@ -111,9 +114,9 @@ function apiRoutes (app) {
     });
 
     app.post('/register', function(req, res){
-       
+       console.log(req.body)
         var newUser = new db.User({
-        name: req.body.name,
+        // name: req.body.name,
         email: req.body.email,
         username: req.body.username,
         password: req.body.password
@@ -130,7 +133,8 @@ function apiRoutes (app) {
     app.post('/login',
         passport.authenticate('local'),
         function(req, res) {
-            //console.log(req.user)
+
+            console.log(req.body)
             res.send(req.user);
         }
     );

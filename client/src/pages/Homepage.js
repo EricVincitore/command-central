@@ -75,15 +75,17 @@ class Homepage extends Component {
         </Row>
         <Row>
           <Col md="4" sm="12">
+          <h3>EdhRec:</h3>
           {this.state.EdhRecArticles.length ? (
+              
               <List>
                 
                 {this.state.EdhRecArticles.map(article => {
                   return ( 
                      
                     <ListItem key = {article.title}>
-                      <a href={article.link}>
-                      <img class="articleImg" src = {article.img} alt="Article Image"/>
+                      <a href={article.link} target="_blank" rel="noopener noreferrer">
+                      <img class="articleImg" src = {article.img} alt={article.title}/>
                       <h4>{article.title}</h4>
                       </a>
                       <p>{article.description}</p>
@@ -96,11 +98,12 @@ class Homepage extends Component {
               }
               </List>
             ) : (
-              <h3>Click the button above to see what is new with EdhRec.</h3>
+              <h4>Click the button above to see the latest content.</h4>
             )}
 
           </Col>
           <Col md="4" sm="12">
+          <h3>The Command Zone:</h3>
             {this.state.CZArticles.length ? (
                 <List>
                   
@@ -108,8 +111,8 @@ class Homepage extends Component {
                     return ( 
                       
                       <ListItem key = {article.title}>
-                        <a href={article.link}>
-                        <img class="articleImg" src = {article.img} alt="Article Image"/>
+                        <a href={article.link} target="_blank" rel="noopener noreferrer">
+                        <img class="articleImg" src = {article.img} alt={article.title}/>
                         <h4>{article.title}</h4>
                         </a>
                         <p>{article.description}</p>
@@ -122,10 +125,12 @@ class Homepage extends Component {
                 }
                 </List>
               ) : (
-                <h3>Click the button above to see what is new with the Command Zone.</h3>
+                <h4>Click the button above to see the latest content.</h4>
               )}
           </Col>
           <Col md="4" sm="12">
+          <h3>Tolarian Community College:</h3>
+
           {this.state.TCCArticles.length ? (
             <List>
               
@@ -133,8 +138,8 @@ class Homepage extends Component {
                   return ( 
                       
                     <ListItem key = {article.title}>
-                      <iframe class="articleImg" src = {article.img} alt="Article Image"/>
-                      <a href={article.link}>
+                    <iframe title = {article.title} class="articleImg" src = {article.img} alt={article.title}/>
+                      <a href={article.link} target="_blank" rel="noopener noreferrer">
                       <h4>{article.title}</h4>
                       </a>
                       <p>{article.description}</p>
@@ -146,7 +151,7 @@ class Homepage extends Component {
               }
               </List>
             ) : (
-              <h3>Click the button above to see what is new with Tolarian Community College.</h3>
+              <h4>Click the button above to see the latest content.</h4>
             )}
           </Col>
         </Row>

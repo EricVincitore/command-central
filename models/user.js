@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcryptjs');
 var passport = require("passport")
+var Schema = mongoose.Schema;
 
 // User Schema
 var UserSchema = mongoose.Schema({
@@ -15,8 +16,8 @@ var UserSchema = mongoose.Schema({
   email: {
     type: String
   },
-  name: {
-    type: String
+  wishList: {
+    type: [{type: Schema.Types.ObjectId, ref: "Cards"}]
   }
 });
 
