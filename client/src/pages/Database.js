@@ -67,7 +67,8 @@ class Database extends Component {
           </Col>
         </Row>
         <Row>
-            <Col sm="12" md="12">
+            <Col sm="12" md="5">
+                <h1>Card Search</h1>
                 <Input
                     value={this.state.name}
                     onChange={this.handleInputChange}
@@ -83,9 +84,8 @@ class Database extends Component {
                     onClick={this.handleOracleSubmit}>Search by Text
                 </Button>{' '}
             </Col>
-        </Row>
-        <Row>
-          <Col size="md-12 sm-12">
+        
+          <Col sm="12" md="7">
             <h1>Results</h1>
             {this.state.cards.length ? (
               <List>
