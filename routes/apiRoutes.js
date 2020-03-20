@@ -15,7 +15,7 @@ function apiRoutes (app) {
        }) 
     });
 
-    app.get("/metagameScrape", function (req, res) {
+    app.get("/metagamescrape", function (req, res) {
         axios.get("https://www.mtggoldfish.com/metagame/commander#paper").then(function (response) {
 
             let $ = cheerio.load(response.data);
@@ -29,10 +29,11 @@ function apiRoutes (app) {
                 result.img = $(element).children(".archetype-tile-image").children(".card-tile").children(".card-img-tile").attr("style");
                 result.title = $(element).children(".archetype-tile-description-wrapper").children(".archetype-tile-description").children(".title").children(".deck-price-paper").text();
                 result.meta = $(element).children(".archetype-tile-statistics").children(".table").children("tbody").children().children(".percentage").text();
+                result.list = $(element).children(".archetype-tile-description-wrapper").children(".archetype-tile-description").children("ul").text();
                 result.price = $(element).children(".archetype-tile-statistics").children(".table").children("tbody").children().children(".text-right").children(".deck-price-paper").text();
                 result.link = "https://www.mtggoldfish.com" + $(element).children(".archetype-tile-description-wrapper").children(".archetype-tile-description").children(".title").children(".deck-price-paper").children().attr("href");
                 console.log(result)
-                //decks.push(result)
+                decks.push(result)
                 
                 // db.Metagame.create(result)
                 //     .then(function (dbMetagame) {

@@ -12,18 +12,20 @@ class Homepage extends Component {
     title: "",
     img: "",
     meta: "",
+    list: "",
     price:"",
     link: ""
   };
 
   handleSearch = event => {
+    event.preventDefault();
     API.metagame()
     .then(res => {
       console.log(res)
     this.setState({metagame: res.data})
     })
     .catch(err => console.log(err));
-  }
+  };
 
   render() {
     return (
@@ -44,10 +46,58 @@ class Homepage extends Component {
         </Row>
         <Row>
           <Col md="6" sm="12">
-          
+            <h3>Metagame:</h3>
+            {this.state.metagame.length ? (
+              
+              <List>
+                
+                {this.state.metagame.slice(0,12).map(deck => {
+                  return ( 
+                     
+                    <ListItem key = {deck.title}>
+                    <a href={deck.link} target="_blank" rel="noopener noreferrer"><h4>{deck.title}</h4></a>
+                    <p>Metagame Percent: {deck.meta}</p>
+                    <p>Common cards: {deck.list}</p>
+                    <p>Example Price: {deck.price}</p>
+                     
+                    </ListItem>
+                  )
+
+                })
+                  
+              }
+              </List>
+            ) : (
+              <h4>Click the button above to see the metagame</h4>
+            )}
+
           </Col>
           <Col md="6" sm="12">
-          
+            <h3>Budget Metagame:</h3>
+            {this.state.metagame.length ? (
+              
+              <List>
+                
+                {this.state.metagame.slice(13,20).map(deck => {
+                  return ( 
+                     
+                    <ListItem key = {deck.title}>
+                      <a href={deck.link} target="_blank" rel="noopener noreferrer"><h4>{deck.title}</h4></a>
+                      <p>Common cards: {deck.list}</p>
+                      <p>Example Price: {deck.price}</p>
+                     
+                    </ListItem>
+                  )
+
+                })
+                  
+              }
+              </List>
+            ) : (
+              <h4>Click the button above to see the metagame</h4>
+            )}
+
+
           </Col>
         </Row>
        

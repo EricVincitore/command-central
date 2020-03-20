@@ -7,7 +7,7 @@ export default {
   },
 
   metagame: function() {
-    return axios.get("/metagameScrape");
+    return axios.get("/metagamescrape");
   },
 
   edhRec: function() {
