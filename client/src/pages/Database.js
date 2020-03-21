@@ -5,10 +5,12 @@ import { Button } from 'reactstrap';
 import {Input} from "../components/Form";
 import API from "../utils/API";
 import { List, ListItem } from "../components/List";
+import SaveBtn from "../components/SaveBtn";
 
 
 class Database extends Component {
     state = {
+      wishlist: [],
       cards: [],
       layout:"",
       name: "",
@@ -58,6 +60,14 @@ class Database extends Component {
       };
     };
 
+    checkSession = (storage) => {
+      if (storage !== 0) {
+        return "Click 'Save Card' to save a card to the wishlist!"
+      } else {
+        return "Login to save card to your wishlist!"
+      }
+    }
+
   render() {
     return (
       <Container fluid>
@@ -83,6 +93,14 @@ class Database extends Component {
                     disabled={!(this.state.name)}
                     onClick={this.handleOracleSubmit}>Search by Text
                 </Button>{' '}
+                <br/>
+                <h3>WishList:</h3>
+                {this.state.wishlist.length ? (
+                  <h4>cards are in the database</h4>
+                ) : (
+                  <h4>{this.checkSession(sessionStorage["user"])}</h4>
+                )}
+                
             </Col>
         
           <Col sm="12" md="7">
@@ -101,6 +119,7 @@ class Database extends Component {
                     ):(
                       <img className="cardImg" src={card.image_uris.small} alt={card.name}/>
                     )}
+                    
                     <h4>{card.name}</h4>
                     <h6>{card.mana_cost}</h6>
                     <h6>{card.type_line}</h6>
@@ -117,6 +136,7 @@ class Database extends Component {
                     <p>Commander Legality: {card.legalities.commander}</p>
                     <p>Price in USD: {this.checkPrice(card.prices.usd)}</p>
                     <p>Foil Price in USD: {this.checkPrice(card.prices.usd_foil)}</p>
+                    <SaveBtn/>
                     </ListItem>
                   )
                 })

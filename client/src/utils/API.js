@@ -26,6 +26,10 @@ export default {
     return axios.post("/register", newUser)
   },
 
+  FBLogin: function(user) {
+    return axios.get("/auth/facebook", user);
+  },
+
   login: function(user) {
     return axios.post("/login", user)
   },
@@ -36,6 +40,22 @@ export default {
 
   logout: function() {
     return axios.get("/logout")
+  },
+
+  getCards: function() {
+    return axios.get("/api/cards");
+  },
+  
+  getCard: function(id) {
+    return axios.get("/api/cards/" + id);
+  },
+  
+  deleteCard: function(id) {
+    return axios.delete("/api/cards/" + id);
+  },
+  
+  saveCard: function(CardData) {
+    return axios.post("/api/cards", CardData);
   }
   
 };

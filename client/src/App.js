@@ -23,6 +23,7 @@ function App() {
           <Route exact path="/resources" component={Resources} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signUp" component={SignUp} />
+          <Route exact path="/logout" component={Login} />
           <Route component={NoMatch} />
         </Switch>
       </div>

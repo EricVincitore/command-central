@@ -39,6 +39,7 @@ class SignUp extends Component {
       password: this.state.username
     })
     .then((data) => {
+      sessionStorage.setItem("user",data.user)
       window.location.href = "/homepage"
     })
   }

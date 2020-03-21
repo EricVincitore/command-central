@@ -34,18 +34,6 @@ function apiRoutes (app) {
                 result.link = "https://www.mtggoldfish.com" + $(element).children(".archetype-tile-description-wrapper").children(".archetype-tile-description").children(".title").children(".deck-price-paper").children().attr("href");
                 console.log(result)
                 decks.push(result)
-                
-                // db.Metagame.create(result)
-                //     .then(function (dbMetagame) {
-                //         // View the added result in the console
-                //         console.log(result)
-                //         console.log(dbMetagame);
-                //     })
-                //     .catch(function (err) {
-                //         // If an error occurred, log it
-                //         console.log(err);
-                //     });
-
 
             });
             res.send(decks);
@@ -112,6 +100,25 @@ function apiRoutes (app) {
             });
             res.send(articles);
         });
+    });
+
+    app.get('/auth/facebook',
+        passport.authenticate('facebook'));
+
+    app.get('/auth/facebook/callback',
+        passport.authenticate('facebook', { failureRedirect: '/login' }),
+        function(req, res) {
+            // Successful authentication, redirect home.
+            console.log(req.user)
+            res.redirect('/homepage');
+        }
+    );
+
+
+    app.get("/api/cards", function (req, res) {
+        db.Cards.find().then(function (response) {
+            res.json(response)
+        })
     });
 
     app.post('/register', function(req, res){

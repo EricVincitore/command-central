@@ -43,6 +43,14 @@ class Login extends Component {
     })
   }
 
+  handleFacebookLogin = (event) => {
+    API.FBLogin({
+    })
+    .then((data) => {
+      sessionStorage.setItem("user",data.user)
+    })
+  }
+
   render() {
     return (
         <Container fluid>
@@ -73,11 +81,11 @@ class Login extends Component {
                     <Row>
                         <Col md="1"/>
                         <Col md="2" sm="12">
-                        <Button onClick={this.handleFormSubmit} color="primary">Log In</Button>
+                        <Button onClick={this.handleFormSubmit} color="danger">Log In</Button>
                         </Col>
                         <Col md="5"/>
                         <Col md="3" sm="12">
-                        <Button color="danger">Log in with Google</Button>
+                        <Button color="primary" onClick={this.handleFacebookLogin}>Log in with Facebook</Button>
                         </Col>
                     </Row>
                     <br/>
