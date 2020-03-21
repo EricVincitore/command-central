@@ -77,7 +77,7 @@ passport.use(new LocalStrategy(
   }
 ));
 
-var FacebookStrategy = require('passport-facebook').Strategy;
+
 var FacebookStrategy = require('passport-facebook').Strategy;
 passport.use(new FacebookStrategy({
   clientID: "203985757544655",

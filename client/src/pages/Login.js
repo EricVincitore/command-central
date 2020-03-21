@@ -86,7 +86,7 @@ class Login extends Component {
                         </Col>
                         <Col md="5"/>
                         <Col md="3" sm="12">
-                        <Button color="primary" onClick={this.handleFacebookLogin}>Log in with Facebook</Button>
+                        <Button color="primary" href="/auth/facebook" >Log in with Facebook</Button>
                         </Col>
                     </Row>
                     <br/>
