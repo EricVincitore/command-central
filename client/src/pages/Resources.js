@@ -91,7 +91,7 @@ class Resources extends Component {
         <Row>
             <Col md="12" sm="12">
                 <h2>Privacy Policy</h2>
-                <a href="https://www.iubenda.com/privacy-policy/61199406" class="iubenda-white iubenda-embed" title="Privacy Policy ">Privacy Policy</a>
+                <a href="https://www.iubenda.com/privacy-policy/61199406" class="iubenda-white iubenda-embed" title="Privacy Policy ">Command Central's Privacy Policy</a>
             </Col>
         </Row>
         

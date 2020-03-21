@@ -121,7 +121,7 @@ function apiRoutes (app) {
     app.post('/register', function(req, res){
        console.log(req.body)
         var newUser = new db.User({
-        // name: req.body.name,
+        name: req.body.name,
         email: req.body.email,
         username: req.body.username,
         password: req.body.password

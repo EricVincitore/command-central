@@ -18,6 +18,7 @@ class SignUp extends Component {
 
   state = {
     user: [],
+    name: "",
     email: "",
     username: "",
     password: ""
@@ -38,6 +39,7 @@ class SignUp extends Component {
       alert("All fields must be filled out")
     } else {
       API.signUp({
+        name: this.state.name,
         email: this.state.email,
         username: this.state.username,
         password: this.state.username
@@ -67,6 +69,10 @@ class SignUp extends Component {
                     </CardBody>
                     <CardBody>
                     <Form>
+                    <FormGroup>
+                            <Label for="exampleName">Username</Label>
+                            <Input type="text" onChange={this.handleInputChange} value={this.state.name} name="name" id="signUpName" placeholder="John Smith" />
+                        </FormGroup>
                         <FormGroup>
                             <Label for="exampleUsername">Username</Label>
                             <Input type="text" onChange={this.handleInputChange} value={this.state.username} name="username" id="signUpUsername" placeholder="Your Username" />

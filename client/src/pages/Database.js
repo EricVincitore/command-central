@@ -60,11 +60,11 @@ class Database extends Component {
       };
     };
 
-    checkSession = (storage) => {
-      if (storage !== 0) {
-        return "Click 'Save Card' to save a card to the wishlist!"
-      } else {
+    checkSession = (user) => {
+      if (user = null) {
         return "Login to save card to your wishlist!"
+      } else {
+        return "Click 'Save Card' to save a card to the wishlist!"
       }
     }
 

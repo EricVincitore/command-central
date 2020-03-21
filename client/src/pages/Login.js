@@ -71,7 +71,7 @@ class Login extends Component {
                         </FormGroup>
                         <FormGroup>
                             <Label for="examplePassword">Password</Label>
-                            <Input type="password" onChange={this.handleInputChange} name="password" id="SignUpPassword" placeholder="A Password you will Remember" />
+                            <Input type="password" onChange={this.handleInputChange} name="password" id="SignUpPassword" placeholder="Your Password" />
                         </FormGroup>
                         </Form>                    
                     </CardBody>

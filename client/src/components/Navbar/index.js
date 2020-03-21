@@ -23,7 +23,10 @@ class Top extends Component {
   };
 
   handleLogout = (event) => {
-    
+    API.logout()
+    .then(() => {
+      window.location.href = "/login"
+    })
   }
 
   render() {
@@ -42,7 +45,7 @@ class Top extends Component {
             <NavLink href="/Resources">Resources</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="/login">Logout</NavLink>
+            <NavLink onClick = {this.handleLogout}>Logout</NavLink>
           </NavItem>
       </Fragment>
     );
