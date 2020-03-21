@@ -109,11 +109,6 @@ function apiRoutes (app) {
             successRedirect:"/homepage",
             failureRedirect: '/login' 
         })
-        // ,function(req, res) {
-        //     // Successful authentication, redirect home.
-        //     console.log(req.user)
-        //     res.redirect('/homepage');
-        // }
     );
 
 

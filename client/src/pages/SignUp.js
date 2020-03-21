@@ -33,15 +33,20 @@ class SignUp extends Component {
   }
 
   handleFormSubmit = (event) => {
-    API.signUp({
-      email: this.state.email,
-      username: this.state.username,
-      password: this.state.username
-    })
-    .then((data) => {
-      sessionStorage.setItem("user",data.user)
-      window.location.href = "/homepage"
-    })
+
+    if (this.state.email === "" || this.state.password === "" ||this.state.username === "") {
+      alert("All fields must be filled out")
+    } else {
+      API.signUp({
+        email: this.state.email,
+        username: this.state.username,
+        password: this.state.username
+      })
+      .then((data) => {
+        sessionStorage.setItem("user",data.user)
+        window.location.href = "/homepage"
+      })
+    }
   }
  
 

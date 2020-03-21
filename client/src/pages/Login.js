@@ -30,17 +30,21 @@ class Login extends Component {
   }
 
   handleFormSubmit = (event) => {
-    console.log(this.state.username)
-    console.log(this.state.password)
-    console.log("_______________________________")
-    API.login({
-      username: this.state.username,
-      password: this.state.password
-    })
-    .then((data) => {
-      sessionStorage.setItem("user",data.user)
-      window.location.href = "/homepage"
-    })
+    if (this.state.password === "" ||this.state.username === "") {
+      alert("All fields must be filled out to login!")
+    } else {
+      console.log(this.state.username)
+      console.log(this.state.password)
+      console.log("_______________________________")
+      API.login({
+        username: this.state.username,
+        password: this.state.password
+      })
+      .then((data) => {
+        sessionStorage.setItem("user",data.user)
+        window.location.href = "/homepage"
+      })
+    }
   }
 
 
