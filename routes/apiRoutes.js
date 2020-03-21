@@ -136,8 +136,13 @@ function apiRoutes (app) {
     
     });
 
+    // app.get('/login', function(req, res){
+        
+    //     req.login();
+    // });
+
     // Endpoint to login
-    app.post('/login',
+    app.get('/login',
         passport.authenticate('local'),
         function(req, res) {
 

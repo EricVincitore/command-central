@@ -33,13 +33,13 @@ export default {
      headers: {
       "Access-Control-Allow-Origin": "*",
       "content-type": "application/json",
-      
+
      }
   });
   },
 
   login: function(user) {
-    return axios.post("/login", user)
+    return axios.get("/login", user)
   },
 
   user: function() {
