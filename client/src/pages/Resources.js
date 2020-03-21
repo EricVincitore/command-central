@@ -87,7 +87,7 @@ class Resources extends Component {
                 </a>
             </Col>
         </Row>
-        <br/>
+        <hr/>
         <Row>
             <Col md="12" sm="12">
                 <h2>Privacy Policy</h2>
