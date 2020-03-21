@@ -74,11 +74,11 @@ class Login extends Component {
                     <Row>
                         <Col md="1"/>
                         <Col md="2" sm="12">
-                        <Button onClick={this.handleFormSubmit} color="danger">Log In</Button>
+                          <Button onClick={this.handleFormSubmit} color="danger">Log In</Button>
                         </Col>
                         <Col md="5"/>
                         <Col md="3" sm="12">
-                        <Button color="primary" onClick={API.FBLogin} >Log in with Facebook</Button>
+                          <a href="https://command-central.herokuapp.com/auth/facebook" >Login with Facebook</a>
                         </Col>
                     </Row>
                     <br/>

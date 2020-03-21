@@ -31,8 +31,9 @@ export default {
      method: "GET",
      url: "/auth/facebook",
      headers: {
-       "Access-Control-Allow-Origin": "*",
-       "content-type": "application/json"
+      "Access-Control-Allow-Origin": "*",
+      "content-type": "application/json",
+      
      }
   });
   },
