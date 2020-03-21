@@ -27,7 +27,14 @@ export default {
   },
 
   FBLogin: function() {
-    return axios.get("/auth/facebook");
+    return axios({
+     method: "GET",
+     url: "/auth/facebook",
+     headers: {
+       "Access-Control-Allow-Origin": "*",
+       "content-type": "application/json"
+     }
+  });
   },
 
   login: function(user) {

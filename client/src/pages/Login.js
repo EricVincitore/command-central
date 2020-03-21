@@ -43,14 +43,6 @@ class Login extends Component {
     })
   }
 
-  handleFacebookLogin = (event) => {
-    event.preventDefault();
-    API.FBLogin()
-    .then((data) => {
-      // sessionStorage.setItem("user", data.user)
-      console.log("logged in with facebook");
-    })
-  }
 
   render() {
     return (
@@ -86,7 +78,7 @@ class Login extends Component {
                         </Col>
                         <Col md="5"/>
                         <Col md="3" sm="12">
-                        <Button color="primary" href="/auth/facebook" >Log in with Facebook</Button>
+                        <Button color="primary" onClick={API.FBLogin} >Log in with Facebook</Button>
                         </Col>
                     </Row>
                     <br/>
