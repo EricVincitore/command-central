@@ -44,10 +44,11 @@ class Login extends Component {
   }
 
   handleFacebookLogin = (event) => {
-    API.FBLogin({
-    })
+    event.preventDefault();
+    API.FBLogin()
     .then((data) => {
-      sessionStorage.setItem("user",data.user)
+      // sessionStorage.setItem("user", data.user)
+      console.log("logged in with facebook");
     })
   }
 

@@ -26,8 +26,8 @@ export default {
     return axios.post("/register", newUser)
   },
 
-  FBLogin: function(user) {
-    return axios.get("/auth/facebook", user);
+  FBLogin: function() {
+    return axios.get("/auth/facebook");
   },
 
   login: function(user) {
