@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Component } from 'react';
 import {
   Collapse,
   Navbar,
@@ -9,17 +9,24 @@ import {
   NavLink
 } from 'reactstrap';
 
-const Example = (props) => {
+class Top extends Component {
+  state = {
+    isOpen: false
+  };
 
-  const [isOpen, setIsOpen] = useState(false);
+  toggle = () => {
+    this.setState({
+        isOpen: !this.state.isOpen
+    });
+  };
 
-  const toggle = () => setIsOpen(!isOpen);
-  return (
-    <div>
+  render() {
+    return(
+    
       <Navbar color="light" light expand="md">
         <NavbarBrand href="/homepage">Command Central</NavbarBrand>
-        <NavbarToggler onClick={toggle} />
-        <Collapse isOpen={isOpen} navbar>
+        <NavbarToggler onClick={this.toggle} />
+        <Collapse isOpen={this.state.isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
               <NavLink href="/homepage">Homepage</NavLink>
@@ -39,8 +46,9 @@ const Example = (props) => {
           </Nav>
         </Collapse>
       </Navbar>
-    </div>
-  );
+    );
+  };
 }
 
-export default Example;
+
+export default Top;
