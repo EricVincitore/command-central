@@ -82,7 +82,7 @@ var FacebookStrategy = require('passport-facebook').Strategy;
 passport.use(new FacebookStrategy({
   clientID: "203985757544655",
   clientSecret: "d664c01bc5c2189e4d9be834a4bbfb5cReset",
-  callbackURL: "http://localhost:3000/auth/facebook/callback"
+  callbackURL: "https://command-central.herokuapp.com/auth/facebook/callback"
 },
 function(accessToken, refreshToken, profile, done) {
   console.log(profile)
