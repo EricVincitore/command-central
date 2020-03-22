@@ -20,12 +20,12 @@ var UserSchema = mongoose.Schema({
   name: {
     type: String
   },
-  facebook: {
-    id: String,
-    token: String,
-    email: String,
-    name: String
-  },
+  // facebook: {
+  //   id: String,
+  //   token: String,
+  //   email: String,
+  //   name: String
+  // },
   wishList: {
     type: [{type: Schema.Types.ObjectId, ref: "Cards"}]
   }

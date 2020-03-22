@@ -44,6 +44,7 @@ class Login extends Component {
         sessionStorage.setItem("user",data.user)
         window.location.href = "/homepage"
       })
+      .catch(console.error())
     }
   }
 
@@ -67,11 +68,11 @@ class Login extends Component {
                     <Form>
                         <FormGroup>
                             <Label for="exampleEmail">Username</Label>
-                            <Input type="text" onChange={this.handleInputChange} name="username" id="signUpUsername" placeholder="Your Username" />
+                            <Input type="text" onChange={this.handleInputChange} value={this.state.username} name="username" id="signUpUsername" placeholder="Your Username" />
                         </FormGroup>
                         <FormGroup>
                             <Label for="examplePassword">Password</Label>
-                            <Input type="password" onChange={this.handleInputChange} name="password" id="SignUpPassword" placeholder="Your Password" />
+                            <Input type="password" onChange={this.handleInputChange} value={this.state.password} name="password" id="SignUpPassword" placeholder="Your Password" />
                         </FormGroup>
                         </Form>                    
                     </CardBody>

@@ -119,20 +119,28 @@ function apiRoutes (app) {
     });
 
     app.post('/register', function(req, res){
-       console.log(req.body)
+        // console.log("____________________________________________")
+        // console.log(req.body)
+        // console.log("____________________________________________")
+        // console.log("name: " + req.body.name)
+        // console.log("username: " + req.body.username)
+        // console.log("password: " + req.body.password)
+        // console.log("email: " + req.body.email)
+        // console.log("____________________________________________")
         var newUser = new db.User({
-        name: req.body.name,
-        email: req.body.email,
-        username: req.body.username,
-        password: req.body.password
+            name: req.body.name,
+            email: req.body.email,
+            username: req.body.username,
+            password: req.body.password
         });
     
         db.User.createUser(newUser, function(err, user){
-        if(err) throw err;
-        res.send(user).end()
+            if(err) throw err;
+            res.send(user).end()
         });
-    
-    });
+        
+      });
+
 
     // app.get('/login', function(req, res){
         
@@ -140,11 +148,9 @@ function apiRoutes (app) {
     // });
 
     // Endpoint to login
-    app.get('/login',
+    app.post('/login',
         passport.authenticate('local'),
         function(req, res) {
-
-            console.log(req.body)
             res.send(req.user);
         }
     );

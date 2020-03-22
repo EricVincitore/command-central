@@ -1,4 +1,4 @@
-import React, { useState, Component, Fragment } from 'react';
+import React, { Component, Fragment } from 'react';
 import API from "../../utils/API"
 import {
   Collapse,

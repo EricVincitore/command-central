@@ -39,7 +39,7 @@ export default {
   },
 
   login: function(user) {
-    return axios.get("/login", user)
+    return axios.post("/login", user)
   },
 
   user: function() {

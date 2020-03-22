@@ -35,7 +35,7 @@ class SignUp extends Component {
 
   handleFormSubmit = (event) => {
 
-    if (this.state.email === "" || this.state.password === "" ||this.state.username === "") {
+    if (this.state.email === "" || this.state.password === "" ||this.state.username === "" || this.state.name === "") {
       alert("All fields must be filled out")
     } else {
       API.signUp({
@@ -70,7 +70,7 @@ class SignUp extends Component {
                     <CardBody>
                     <Form>
                     <FormGroup>
-                            <Label for="exampleName">Username</Label>
+                            <Label for="exampleName">Name</Label>
                             <Input type="text" onChange={this.handleInputChange} value={this.state.name} name="name" id="signUpName" placeholder="John Smith" />
                         </FormGroup>
                         <FormGroup>
