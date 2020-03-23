@@ -4,6 +4,7 @@ import Jumbotron from "../components/Jumbotron";
 import { Button } from 'reactstrap';
 import API from "../utils/API";
 import { List, ListItem } from "../components/List";
+import Footer from "../components/Footer";
 
 
 class Homepage extends Component {
@@ -57,57 +58,31 @@ class Homepage extends Component {
 
   render() {
     return (
-      <Container fluid>
-        <Row>
-          <Col md="12" sm="12">
-            <Jumbotron/>
-          </Col>
-        </Row>
-        <Row>
-          <Col md="4" sm="2"/>
-          <Col md="4" sm="8">
-            <Button color="primary"
-             onClick={this.handleSearch}>
-              Click here to stay up to date with the commander format!
-            </Button>{' '}
-          </Col>
-          <Col md="4" sm="2"/>
-        </Row>
-        <Row>
-          <Col md="4" sm="12">
-          <h3>EdhRec:</h3>
-          {this.state.EdhRecArticles.length ? (
-              
-              <List>
+      <div>
+        <Container fluid>
+          <Row>
+            <Col md="12" sm="12">
+              <Jumbotron/>
+            </Col>
+          </Row>
+          <Row>
+            <Col md="4" sm="2"/>
+            <Col md="4" sm="8">
+              <Button color="primary"
+              onClick={this.handleSearch}>
+                Click here to stay up to date with the commander format!
+              </Button>{' '}
+            </Col>
+            <Col md="4" sm="2"/>
+          </Row>
+          <Row>
+            <Col md="4" sm="12">
+            <h3>EdhRec:</h3>
+            {this.state.EdhRecArticles.length ? (
                 
-                {this.state.EdhRecArticles.map(article => {
-                  return ( 
-                     
-                    <ListItem key = {article.title}>
-                      <a href={article.link} target="_blank" rel="noopener noreferrer">
-                      <img class="articleImg" src = {article.img} alt={article.title}/>
-                      <h4>{article.title}</h4>
-                      </a>
-                      <p>{article.description}</p>
-                     
-                    </ListItem>
-                  )
-
-                })
-                  
-              }
-              </List>
-            ) : (
-              <h4>Click the button above to see the latest content.</h4>
-            )}
-
-          </Col>
-          <Col md="4" sm="12">
-          <h3>The Command Zone:</h3>
-            {this.state.CZArticles.length ? (
                 <List>
                   
-                  {this.state.CZArticles.map(article => {
+                  {this.state.EdhRecArticles.map(article => {
                     return ( 
                       
                       <ListItem key = {article.title}>
@@ -116,7 +91,7 @@ class Homepage extends Component {
                         <h4>{article.title}</h4>
                         </a>
                         <p>{article.description}</p>
-                        
+                      
                       </ListItem>
                     )
 
@@ -127,36 +102,64 @@ class Homepage extends Component {
               ) : (
                 <h4>Click the button above to see the latest content.</h4>
               )}
-          </Col>
-          <Col md="4" sm="12">
-          <h3>Tolarian Community College:</h3>
 
-          {this.state.TCCArticles.length ? (
-            <List>
-              
-              {this.state.TCCArticles.map(article => {
-                  return ( 
-                      
-                    <ListItem key = {article.title}>
-                    <iframe title = {article.title} class="articleImg" src = {article.img} alt={article.title}/>
-                      <a href={article.link} target="_blank" rel="noopener noreferrer">
-                      <h4>{article.title}</h4>
-                      </a>
-                      <p>{article.description}</p>
-                      
-                    </ListItem>
-                  )
+            </Col>
+            <Col md="4" sm="12">
+            <h3>The Command Zone:</h3>
+              {this.state.CZArticles.length ? (
+                  <List>
+                    
+                    {this.state.CZArticles.map(article => {
+                      return ( 
+                        
+                        <ListItem key = {article.title}>
+                          <a href={article.link} target="_blank" rel="noopener noreferrer">
+                          <img class="articleImg" src = {article.img} alt={article.title}/>
+                          <h4>{article.title}</h4>
+                          </a>
+                          <p>{article.description}</p>
+                          
+                        </ListItem>
+                      )
 
-                })    
-              }
-              </List>
-            ) : (
-              <h4>Click the button above to see the latest content.</h4>
-            )}
-          </Col>
-        </Row>
-       
-      </Container>
+                    })
+                      
+                  }
+                  </List>
+                ) : (
+                  <h4>Click the button above to see the latest content.</h4>
+                )}
+            </Col>
+            <Col md="4" sm="12">
+            <h3>Tolarian Community College:</h3>
+
+            {this.state.TCCArticles.length ? (
+              <List>
+                
+                {this.state.TCCArticles.map(article => {
+                    return ( 
+                        
+                      <ListItem key = {article.title}>
+                      <iframe title = {article.title} class="articleImg" src = {article.img} alt={article.title}/>
+                        <a href={article.link} target="_blank" rel="noopener noreferrer">
+                        <h4>{article.title}</h4>
+                        </a>
+                        <p>{article.description}</p>
+                        
+                      </ListItem>
+                    )
+
+                  })    
+                }
+                </List>
+              ) : (
+                <h4>Click the button above to see the latest content.</h4>
+              )}
+            </Col>
+          </Row>
+        </Container>
+        <Footer/>
+      </div>
     );
   }
 }

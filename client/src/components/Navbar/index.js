@@ -9,8 +9,11 @@ import {
   NavItem,
   NavLink
 } from 'reactstrap';
-import "./style.css";
 
+
+const navText = {
+  color: "#fff" 
+}
 
 class Top extends Component {
   state = {
@@ -34,45 +37,45 @@ class Top extends Component {
     const userLinks = (
       <Fragment>
         <NavItem>
-            <NavLink href="/homepage">Homepage</NavLink>
+            <NavLink href="/homepage" style={navText}>Homepage</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="/metagame">Metagame</NavLink>
+            <NavLink href="/metagame" style={navText}>Metagame</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="/cardDatabase">Card Database</NavLink>
+            <NavLink href="/cardDatabase" style={navText}>Card Database</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="/Resources">Resources</NavLink>
+            <NavLink href="/Resources" style={navText}>Resources</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink onClick = {this.handleLogout} >Logout</NavLink>
+            <NavLink onClick = {this.handleLogout} style={navText}>Logout</NavLink>
           </NavItem>
       </Fragment>
     );
     const guestLinks = (
       <Fragment>
         <NavItem>
-          <NavLink href="/homepage" >Homepage</NavLink>
+          <NavLink href="/homepage" style={navText}>Homepage</NavLink>
         </NavItem>
         <NavItem>
-          <NavLink href="/metagame" >Metagame</NavLink>
+          <NavLink href="/metagame" style={navText}>Metagame</NavLink>
         </NavItem>
         <NavItem>
-          <NavLink href="/cardDatabase" >Card Database</NavLink>
+          <NavLink href="/cardDatabase" style={navText}>Card Database</NavLink>
         </NavItem>
         <NavItem>
-          <NavLink href="/Resources" >Resources</NavLink>
+          <NavLink href="/Resources" style={navText}>Resources</NavLink>
         </NavItem>
         <NavItem>
-          <NavLink href="/login" >Login</NavLink>
+          <NavLink href="/login" style={navText}>Login</NavLink>
         </NavItem>
       </Fragment>
     )
     return(
     
-      <Navbar className ="nav-bar" light expand="md">
-        <NavbarBrand href="/homepage" >Command Central</NavbarBrand>
+      <Navbar className ="nav-bar" style={{backgroundColor: "#4e7781"}} light expand="md">
+        <NavbarBrand href="/homepage" className="navBrand" style={{color: "#c0dcdd"}}>Command Central</NavbarBrand>
         <NavbarToggler onClick={this.toggle} />
         <Collapse isOpen={this.state.isOpen} navbar>
           <Nav className="mr-auto" navbar>

@@ -7,5 +7,5 @@ import registerServiceWorker from "./registerServiceWorker";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-ReactDOM.render(<Router><App /></Router>, document.getElementById("root"));
+ReactDOM.render(<Router><App/></Router>, document.getElementById("root"));
 registerServiceWorker();
