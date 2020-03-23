@@ -118,6 +118,38 @@ function apiRoutes (app) {
         })
     });
 
+    app.post ("/api/saveCard", function (req, res) {
+        var newCard = new db.Cards ({
+            name: req.body.name,
+            cmc: req.body.cmc,
+            set: req.body.set,
+            description: req.body.description
+        });
+
+        db.Cards.createCards(newCard, function (err, card) {
+            if (err) throw err
+            res.send(card)
+        });
+    });
+
+    app.delete("/api/cards/:id", function (req, res) {
+        var id = mongoose.Types.ObjectId(req.params.id);
+        db.Cards.deleteOne({ _id: id }, function (err) {
+            if (err) return handleError(err);
+            // deleted at most one tank document
+            console.log("Deleted")
+        });
+    });
+
+    app.get("/deleteAll", function (req, res) {
+        db.Cards.deleteMany({}).then(function (data) {
+            console.log("Cards Deleted")
+        }).catch(function (err) {
+            console.log(err)
+        });
+        res.redirect("/database");
+    });
+
     app.post('/register', function(req, res){
         // console.log("____________________________________________")
         // console.log(req.body)
