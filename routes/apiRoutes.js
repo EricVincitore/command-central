@@ -113,7 +113,8 @@ function apiRoutes (app) {
 
 
     app.get("/api/cards", function (req, res) {
-        db.Cards.find().then(function (response) {
+        db.Cards.find()
+        .then(function (response) {
             res.json(response)
         })
     });

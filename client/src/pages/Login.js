@@ -52,7 +52,7 @@ class Login extends Component {
 
   render() {
     return (
-      <div>
+      <div className="page" style={{backgroundColor:"#2b3d52"}}>
         <Container fluid>
           <Row>
             <Col md="12" sm="12">
@@ -64,16 +64,16 @@ class Login extends Component {
               <Col md="8" sm="12">
                   <Card>
                       <CardBody>
-                      <CardTitle><h4>Command Central Login</h4></CardTitle>
+                      <CardTitle><h4 style={{color:"#2b3d52"}}>Command Central Login</h4></CardTitle>
                       </CardBody>
                       <CardBody>
                       <Form>
                           <FormGroup>
-                              <Label for="exampleEmail">Username</Label>
+                              <Label for="exampleEmail" style={{color:"#2b3d52"}}>Username</Label>
                               <Input type="text" onChange={this.handleInputChange} value={this.state.username} name="username" id="signUpUsername" placeholder="Your Username" />
                           </FormGroup>
                           <FormGroup>
-                              <Label for="examplePassword">Password</Label>
+                              <Label for="examplePassword" style={{color:"#2b3d52"}}>Password</Label>
                               <Input type="password" onChange={this.handleInputChange} value={this.state.password} name="password" id="SignUpPassword" placeholder="Your Password" />
                           </FormGroup>
                           </Form>                    
@@ -81,7 +81,7 @@ class Login extends Component {
                       <Row>
                           <Col md="1"/>
                           <Col md="2" sm="12">
-                            <Button onClick={this.handleFormSubmit} color="danger">Log In</Button>
+                            <Button onClick={this.handleFormSubmit} style={{backgroundColor:"#4e7781", color:"#fff"}} className="submitBtn">Log In</Button>
                           </Col>
                           <Col md="5"/>
                           <Col md="3" sm="12">
@@ -92,7 +92,7 @@ class Login extends Component {
                       <Row>
                           <Col md="1"/>
                           <Col md="8" sm="12">
-                          <Link to="/signup"><Button color="info">Sign Up with Command Central</Button></Link>
+                          <Link to="/signup"><Button style={{backgroundColor:"#5fb9ce", color:"#fff"}} className="submitBtn">Sign Up with Command Central</Button></Link>
                           </Col>
                       </Row>
                       <br/> 

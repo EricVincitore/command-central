@@ -8,14 +8,12 @@ body {
   min-height: 100%;
   flex-direction: column;
   background-color:#2b3d52;
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-}
-
-main {
-  flex: 1 0 auto;
-  background-color:#2b3d52
+  height: 100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  top: 0;
+  bottom: 0;
 }
 
 .cardImg {
@@ -29,10 +27,22 @@ main {
 
 iframe {
   width: 100%;
-  height: 150%
+  height: 150%;
+}
+.link {
+  color: #2b3d52;
 }
 
 .navBrand:hover {
-  color: #2b3d52;
-  background-color: #fff;
+  background-color: #c0dcdd;
+  color: #fff;
+}
+
+.link:hover {
+  background-color: #c0dcdd;
+  color: #fff;
+}
+
+.submitBtn:hover {
+  opacity: 2;
 }

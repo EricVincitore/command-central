@@ -58,7 +58,7 @@ class Homepage extends Component {
 
   render() {
     return (
-      <div>
+      <div className="page" style={{backgroundColor:"#2b3d52", textAlign:"center"}}>
         <Container fluid>
           <Row>
             <Col md="12" sm="12">
@@ -68,45 +68,50 @@ class Homepage extends Component {
           <Row>
             <Col md="4" sm="2"/>
             <Col md="4" sm="8">
-              <Button color="primary"
+              <Button className="submitBtn" style={{backgroundColor:"#5fb9ce", color:"#fff"}}
               onClick={this.handleSearch}>
                 Click here to stay up to date with the commander format!
               </Button>{' '}
             </Col>
             <Col md="4" sm="2"/>
           </Row>
+          <br/>
           <Row>
             <Col md="4" sm="12">
-            <h3>EdhRec:</h3>
-            {this.state.EdhRecArticles.length ? (
-                
-                <List>
+              <h3 style={{color:"#fff"}}>EdhRec:</h3>
+              <br/>
+              <div>
+              {this.state.EdhRecArticles.length ? (
                   
-                  {this.state.EdhRecArticles.map(article => {
-                    return ( 
-                      
-                      <ListItem key = {article.title}>
-                        <a href={article.link} target="_blank" rel="noopener noreferrer">
-                        <img class="articleImg" src = {article.img} alt={article.title}/>
-                        <h4>{article.title}</h4>
-                        </a>
-                        <p>{article.description}</p>
-                      
-                      </ListItem>
-                    )
-
-                  })
+                  <List>
                     
-                }
-                </List>
-              ) : (
-                <h4>Click the button above to see the latest content.</h4>
-              )}
+                    {this.state.EdhRecArticles.map(article => {
+                      return ( 
+                        
+                        <ListItem key = {article.title}>
+                          <a href={article.link} target="_blank" rel="noopener noreferrer">
+                          <img class="articleImg" src = {article.img} alt={article.title}/>
+                          <h4 style={{color:"#5fb9ce"}}>{article.title}</h4>
+                          </a>
+                          <p style={{color:"#2b3d52"}}>{article.description}</p>
+                        
+                        </ListItem>
+                      )
 
+                    })
+                      
+                  }
+                </List>
+                ) : (
+                  <h4 style={{color:"#fff"}}>Click the button above to see the latest content.</h4>
+                )}
+              </div>
             </Col>
             <Col md="4" sm="12">
-            <h3>The Command Zone:</h3>
-              {this.state.CZArticles.length ? (
+              <h3 style={{color:"#fff"}}>The Command Zone:</h3>
+              <br/>
+              <div>
+                {this.state.CZArticles.length ? (
                   <List>
                     
                     {this.state.CZArticles.map(article => {
@@ -115,46 +120,48 @@ class Homepage extends Component {
                         <ListItem key = {article.title}>
                           <a href={article.link} target="_blank" rel="noopener noreferrer">
                           <img class="articleImg" src = {article.img} alt={article.title}/>
-                          <h4>{article.title}</h4>
+                          <h4 style={{color:"#5fb9ce"}}>{article.title}</h4>
                           </a>
-                          <p>{article.description}</p>
+                          <p style={{color:"#2b3d52"}}>{article.description}</p>
                           
                         </ListItem>
                       )
 
                     })
-                      
                   }
                   </List>
-                ) : (
-                  <h4>Click the button above to see the latest content.</h4>
-                )}
+                  ) : (
+                    <h4 style={{color:"#fff"}}>Click the button above to see the latest content.</h4>
+                  )}
+              </div>
             </Col>
             <Col md="4" sm="12">
-            <h3>Tolarian Community College:</h3>
+            <h3 style={{color:"#fff"}}>Tolarian Community College:</h3>
+            <br/>
+            <div>
+              {this.state.TCCArticles.length ? (
+                <List>
+                  
+                  {this.state.TCCArticles.map(article => {
+                      return ( 
+                          
+                        <ListItem key = {article.title}>
+                        <iframe title = {article.title} class="articleImg" src = {article.img} alt={article.title}/>
+                          <a href={article.link} target="_blank" rel="noopener noreferrer">
+                          <h4 style={{color:"#5fb9ce"}}>{article.title}</h4>
+                          </a>
+                          <p style={{color:"#2b3d52"}}>{article.description}</p>
+                          
+                        </ListItem>
+                      )
 
-            {this.state.TCCArticles.length ? (
-              <List>
-                
-                {this.state.TCCArticles.map(article => {
-                    return ( 
-                        
-                      <ListItem key = {article.title}>
-                      <iframe title = {article.title} class="articleImg" src = {article.img} alt={article.title}/>
-                        <a href={article.link} target="_blank" rel="noopener noreferrer">
-                        <h4>{article.title}</h4>
-                        </a>
-                        <p>{article.description}</p>
-                        
-                      </ListItem>
-                    )
-
-                  })    
-                }
+                    })    
+                  }
                 </List>
-              ) : (
-                <h4>Click the button above to see the latest content.</h4>
-              )}
+                ) : (
+                  <h4 style={{color:"#fff"}}>Click the button above to see the latest content.</h4>
+                )}
+            </div>
             </Col>
           </Row>
         </Container>

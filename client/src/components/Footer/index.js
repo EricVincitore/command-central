@@ -1,11 +1,31 @@
-import React from "react";
+import React, { Component } from 'react';
+import {
+  Navbar,
+  Nav
+} from 'reactstrap';
 
-function Footer() {
-    return (
-        <nav className="navbar sticky-bottom navbar-dark bg-dark footer">
-            <a className="navbar-brand"></a>
-        </nav>
-    )
+const footer = {
+    bottomMargin: "0%",
+    flex: 1,
+    backgroundColor: "#4e7781"
 }
 
-export default Footer;
+
+
+class Bottom extends Component {
+  
+
+  render() {
+    
+    return(
+    
+      <Navbar className ="nav-bar sticky-bottom footer" style={footer} light expand="md">
+        <Nav className="mr-auto" navbar>
+        </Nav>
+      </Navbar>
+    );
+  };
+}
+
+
+export default Bottom;

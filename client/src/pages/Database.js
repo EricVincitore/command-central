@@ -71,48 +71,49 @@ class Database extends Component {
 
   render() {
     return (
-      <div>
+      <div className="page" style={{backgroundColor:"#2b3d52"}}>
         <Container fluid>
           <Row>
             <Col md="12" sm="12">
-              <Jumbotron/>
+              <Jumbotron />
             </Col>
           </Row>
           <Row>
-              <Col sm="12" md="5">
-                  <h1>Card Search</h1>
+              <Col sm="12" md="5" style={{textAlign:"center"}}>
+                  <h1 style={{color:"#fff"}}>Card Search</h1>
                   <Input
                       value={this.state.name}
                       onChange={this.handleInputChange}
                       name="name"
                       placeholder="Search Term (Required)"
                   />
-                  <Button color="primary"
+                  <Button className="submitBtn" style={{backgroundColor:"#5fb9ce", color:"#fff"}}
                       disabled={!(this.state.name)}
                       onClick={this.handleFormSubmit}>Search by Name
                   </Button>{' '}
-                  <Button color="info"
+                  <Button className="submitBtn" style={{backgroundColor:"#4e7781", color:"#fff"}}
                       disabled={!(this.state.name)}
                       onClick={this.handleOracleSubmit}>Search by Text
                   </Button>{' '}
+
                   <br/>
-                  <h3>WishList:</h3>
+                  <h3 style={{textAlign:"center", color:"#fff"}}>WishList:</h3>
                   {this.state.wishlist.length ? (
                     <h4>cards are in the database</h4>
                   ) : (
-                    <h4>{this.checkSession(API.user)}</h4>
+                    <h4 style={{textAlign:"center", color:"#fff"}}>{this.checkSession(API.user)}</h4>
                   )}
                   
               </Col>
           
             <Col sm="12" md="7">
-              <h1>Results</h1>
+              <h1 style={{textAlign:"center", color:"#fff"}}>Results</h1>
               {this.state.cards.length ? (
                 <List>
                   {console.log(this.state.cards)}
                   {this.state.cards.map(card => {
                     return (  
-                      <ListItem key={card.name}>
+                      <ListItem style={{textAlign:"left"}} key={card.name}>
                       {card.layout === "transform" ? (
                         <div>
                           <img className="cardImg" src={card.card_faces[1].image_uris.small} alt={card.card_faces[1].name}/>
@@ -145,7 +146,7 @@ class Database extends Component {
                 }
                 </List>
               ) : (
-                <h3>No Results to Display</h3>
+                <h3 style={{textAlign:"center", color:"#fff"}}>No Results to Display</h3>
               )}
             </Col>
           </Row>

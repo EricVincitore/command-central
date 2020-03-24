@@ -55,7 +55,7 @@ class SignUp extends Component {
 
   render() {
     return (
-      <div>
+      <div className="page" style={{backgroundColor:"#2b3d52"}}>
         <Container fluid>
           <Row>
             <Col md="12" sm="12">
@@ -72,19 +72,19 @@ class SignUp extends Component {
                       <CardBody>
                       <Form>
                       <FormGroup>
-                              <Label for="exampleName">Name</Label>
+                              <Label for="exampleName" style={{color:"#2b3d52"}}>Name</Label>
                               <Input type="text" onChange={this.handleInputChange} value={this.state.name} name="name" id="signUpName" placeholder="John Smith" />
                           </FormGroup>
                           <FormGroup>
-                              <Label for="exampleUsername">Username</Label>
+                              <Label for="exampleUsername" style={{color:"#2b3d52"}}>Username</Label>
                               <Input type="text" onChange={this.handleInputChange} value={this.state.username} name="username" id="signUpUsername" placeholder="Your Username" />
                           </FormGroup>
                           <FormGroup>
-                              <Label for="exampleEmail">Email</Label>
+                              <Label for="exampleEmail" style={{color:"#2b3d52"}}>Email</Label>
                               <Input type="email" onChange={this.handleInputChange} value={this.state.email} name="email" id="signUpEmail" placeholder="YourEmail@example.com" />
                           </FormGroup>
                           <FormGroup>
-                              <Label for="examplePassword">Password</Label>
+                              <Label for="examplePassword" style={{color:"#2b3d52"}}>Password</Label>
                               <Input type="password" onChange={this.handleInputChange} value={this.state.password} name="password" id="SignUpPassword" placeholder="A Password you will Remember" />
                           </FormGroup>
                           </Form>                    
@@ -92,14 +92,14 @@ class SignUp extends Component {
                       <Row>
                           <Col md="1" sm="1"/>
                           <Col md="8" sm="11">
-                          <Button onClick={this.handleFormSubmit} color="info">Sign Up</Button>
+                          <Button onClick={this.handleFormSubmit} style={{backgroundColor:"#5fb9ce", color:"#fff"}} className="submitBtn">Sign Up</Button>
                           </Col>
                       </Row>
                       <br/>
                       <Row>
                           <Col md="1" sm="1"/>
                           <Col md="8" sm="11">
-                          <Link to="/login"><Button color="primary">Return to Login</Button></Link>
+                          <Link to="/login"><Button style={{backgroundColor:"#4e7781", color:"#fff"}} className="submitBtn">Return to Login</Button></Link>
                           </Col>
                       </Row>
                       <br/> 
@@ -109,6 +109,7 @@ class SignUp extends Component {
               <Col md="2"/>
           </Row>
         </Container>
+        <br/>
         <Footer/>
       </div>
     );

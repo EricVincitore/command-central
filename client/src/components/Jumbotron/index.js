@@ -3,11 +3,11 @@ import { Jumbotron, Container } from 'reactstrap';
 
 const Example = (props) => {
   return (
-    <div>
+    <div style={{textAlign:"center"}}>
       <Jumbotron fluid style={{backgroundColor:"#c0dcdd"}}>
         <Container fluid>
-          <h1 className="display-3">Command Central</h1>
-          <p className="lead">The central source for all aspects of the Commander format.</p>
+          <h1 className="display-3" style={{color:"#2b3d52"}}>Command Central</h1>
+          <p className="lead" style={{color:"#2b3d52"}}>The central source for all aspects of the Commander format.</p>
         </Container>
       </Jumbotron>
     </div>
