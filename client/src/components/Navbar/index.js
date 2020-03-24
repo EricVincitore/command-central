@@ -11,6 +11,11 @@ import {
 } from 'reactstrap';
 import PropTypes from 'prop-types';
 
+const nav = {
+  position: "fixed",
+  
+}
+
 class Top extends Component {
   state = {
     isOpen: false

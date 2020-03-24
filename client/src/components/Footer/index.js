@@ -8,10 +8,10 @@ const footer = {
     bottomMargin: "0%",
     flex: 1,
     backgroundColor: "#4e7781",
-    height:"2%",
+    height:"2npm%",
     bottom: 0,
     width:"100%",
-    position:"absolute"
+    position:"fixed"
 }
 
 

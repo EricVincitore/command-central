@@ -4,6 +4,7 @@ import Jumbotron from "../components/Jumbotron";
 import Footer from "../components/Footer";
 
 
+
 class Resources extends Component {
   render() {
     return (
