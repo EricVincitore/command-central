@@ -101,6 +101,7 @@ class Resources extends Component {
                 </Row>
             </Container>
             <br/>
+            <br/>
             <Footer/>
 
         </div>

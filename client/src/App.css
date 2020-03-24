@@ -46,3 +46,7 @@ iframe {
 .submitBtn:hover {
   opacity: 2;
 }
+
+.nav-bar {
+  position: fixed;
+}

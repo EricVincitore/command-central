@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {
   Navbar,
+  NavbarBrand,
   Nav
 } from 'reactstrap';
 
@@ -24,6 +25,7 @@ class Bottom extends Component {
     return(
     
       <Navbar className ="nav-bar sticky-bottom footer" style={footer} light expand="md">
+        <NavbarBrand href="/homepage" className="navBrand" style={{color:"#fff", fontSize:"50%"}}>Command Central</NavbarBrand>
         <Nav className="mr-auto" navbar>
         </Nav>
       </Navbar>

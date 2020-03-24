@@ -11,9 +11,15 @@ import {
 } from 'reactstrap';
 import PropTypes from 'prop-types';
 
-const nav = {
+const navSettings = {
   position: "fixed",
-  
+  Top: "0",
+  right: "0",
+  left: "0",
+  width: "100%",
+  backgroundColor: "#fff",
+  zIndex: 1
+
 }
 
 class Top extends Component {
@@ -39,7 +45,9 @@ class Top extends Component {
 
   render() {
 
-    
+    Navbar.propTypes = {
+      fixed: PropTypes.string
+    };
     const userLinks = (
       <Fragment>
         <NavItem>
@@ -81,7 +89,7 @@ class Top extends Component {
     return(
       
     
-      <Navbar className ="nav-bar" style={{backgroundColor: "#fff"}} light expand="md">
+      <Navbar className ="nav-bar" style={navSettings} light expand="md">
         <NavbarBrand href="/homepage" className="navBrand" style={{color:"#2b3d52"}}>Command Central</NavbarBrand>
         <NavbarToggler onClick={this.toggle} />
         <Collapse isOpen={this.state.isOpen} navbar>
@@ -97,9 +105,6 @@ class Top extends Component {
   
 }
 
-Navbar.propTypes = {
-  fixed: PropTypes.string
-};
 
 
 export default Top;
