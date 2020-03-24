@@ -75,12 +75,8 @@ class Database extends Component {
       };
     };
 
-    checkSession = (user) => {
-      if (user === null) {
-        return "Login to save card to your wishlist!"
-      } else {
-        return "Click 'Save Card' to save a card to the wishlist!"
-      }
+    checkSession = () => {
+      
     }
 
   render() {
@@ -126,7 +122,12 @@ class Database extends Component {
                   {this.state.wishlist.length ? (
                     <h4>cards are in the database</h4>
                   ) : (
-                    <h4 style={{textAlign:"center", color:"#fff"}}>{this.checkSession(API.user)}</h4>
+                    <h4 style={{textAlign:"center", color:"#fff"}}>
+                      {sessionStorage.getItem("user") == null ? ( 
+                      "Login to save card to your wishlist!"
+                    ) : (
+                      "Click 'Save Card' to save a card to the wishlist!"
+                    )}</h4>
                   )}
                   
               </Col>

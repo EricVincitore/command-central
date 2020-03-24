@@ -33,7 +33,7 @@ export default {
      headers: {
       "Access-Control-Allow-Origin": "*",
       "content-type": "application/json",
-
+      "Set-Cookie": "cross-site-cookie=name; SameSite=None; Secure"
      }
   });
   },

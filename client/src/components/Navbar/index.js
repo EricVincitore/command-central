@@ -35,8 +35,10 @@ class Top extends Component {
   };
 
   handleLogout = (event) => {
+    event.preventDefault();
     API.logout()
     .then(() => {
+      sessionStorage.setItem("user", null)
       window.location.href = "/login"
     })
   }
@@ -63,7 +65,7 @@ class Top extends Component {
             <NavLink href="/Resources" className="link" style={{color:"#2b3d52"}}>Resources</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink onClick = {this.handleLogout} className="link" style={{color:"#2b3d52"}}>Logout</NavLink>
+            <NavLink  href="/login" onClick = {this.handleLogout} className="link" style={{color:"#2b3d52"}}>Logout</NavLink>
           </NavItem>
       </Fragment>
     );
@@ -94,7 +96,7 @@ class Top extends Component {
         <NavbarToggler onClick={this.toggle} />
         <Collapse isOpen={this.state.isOpen} navbar>
           <Nav className="mr-auto" navbar>
-            { API.user = null ? guestLinks : userLinks}
+            { sessionStorage.getItem("user") == null ? (guestLinks) : (userLinks)}
           </Nav>
         </Collapse>
       </Navbar>
