@@ -52,7 +52,7 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="page" style={{backgroundColor:"#2b3d52"}}>
+      <div className="page" >
         <Container fluid>
           <Row>
             <Col md="12" sm="12">

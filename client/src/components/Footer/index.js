@@ -7,7 +7,11 @@ import {
 const footer = {
     bottomMargin: "0%",
     flex: 1,
-    backgroundColor: "#4e7781"
+    backgroundColor: "#4e7781",
+    height:"2%",
+    bottom: 0,
+    width:"100%",
+    position:"absolute"
 }
 
 

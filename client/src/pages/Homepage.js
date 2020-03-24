@@ -58,7 +58,7 @@ class Homepage extends Component {
 
   render() {
     return (
-      <div className="page" style={{backgroundColor:"#2b3d52", textAlign:"center"}}>
+      <div className="page" style={{textAlign:"center"}}>
         <Container fluid>
           <Row>
             <Col md="12" sm="12">

@@ -14,6 +14,19 @@ import {
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 
+const bodyStyle = {
+  display: "flex",
+  flexDirection: "column",
+  backgroundColor: "#2b3d52",
+  height: "100%",
+  backgroundAttachment: "fixed",
+  backgroundPosition: "center",
+  backgroundSize: "cover",
+  top: 0,
+  bottom: 0,
+  bottomMargin:0
+}
+
 
 class SignUp extends Component {
 
@@ -55,7 +68,7 @@ class SignUp extends Component {
 
   render() {
     return (
-      <div className="page" style={{backgroundColor:"#2b3d52"}}>
+      <div className="page" style={bodyStyle}>
         <Container fluid>
           <Row>
             <Col md="12" sm="12">

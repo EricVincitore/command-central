@@ -9,11 +9,13 @@ import {
   NavItem,
   NavLink
 } from 'reactstrap';
+import PropTypes from 'prop-types';
 
 class Top extends Component {
   state = {
     isOpen: false
   };
+  
 
   toggle = () => {
     this.setState({
@@ -28,8 +30,11 @@ class Top extends Component {
     })
   }
   
+  
 
   render() {
+
+    
     const userLinks = (
       <Fragment>
         <NavItem>
@@ -69,6 +74,7 @@ class Top extends Component {
       </Fragment>
     )
     return(
+      
     
       <Navbar className ="nav-bar" style={{backgroundColor: "#fff"}} light expand="md">
         <NavbarBrand href="/homepage" className="navBrand" style={{color:"#2b3d52"}}>Command Central</NavbarBrand>
@@ -81,7 +87,14 @@ class Top extends Component {
       </Navbar>
     );
   };
+
+  
+  
 }
+
+Navbar.propTypes = {
+  fixed: PropTypes.string
+};
 
 
 export default Top;

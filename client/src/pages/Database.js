@@ -85,7 +85,7 @@ class Database extends Component {
 
   render() {
     return (
-      <div className="page" style={{backgroundColor:"#2b3d52"}}>
+      <div className="page">
 
       <div>
         <Modal isOpen={this.isOpen} toggle={this.toggle}>
@@ -164,7 +164,7 @@ class Database extends Component {
                       <p>Commander Legality: {card.legalities.commander}</p>
                       <p>Price in USD: {this.checkPrice(card.prices.usd)}</p>
                       <p>Foil Price in USD: {this.checkPrice(card.prices.usd_foil)}</p>
-                      <SaveBtn/>
+                      <SaveBtn className="submitBtn save-btn btn" style={{backgroundColor:"#4e7781", color:"#fff"}}/>
                       </ListItem>
                     )
                   })
