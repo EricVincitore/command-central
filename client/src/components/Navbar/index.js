@@ -10,6 +10,7 @@ import {
   NavLink
 } from 'reactstrap';
 import PropTypes from 'prop-types';
+import firebase from "firebase"
 
 const navSettings = {
   position: "fixed",
@@ -27,6 +28,13 @@ class Top extends Component {
     isOpen: false
   };
   
+  firebaseSignOut = () => {
+    firebase.auth().signOut().then(function() {
+      // Sign-out successful.
+    }).catch(function(error) {
+      // An error happened.
+    });
+  }
 
   toggle = () => {
     this.setState({
@@ -65,7 +73,7 @@ class Top extends Component {
             <NavLink href="/Resources" className="link" style={{color:"#2b3d52"}}>Resources</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink  href="/login" onClick = {this.handleLogout} className="link" style={{color:"#2b3d52"}}>Logout</NavLink>
+            <NavLink  href="/login" onClick = {sessionStorage.getItem("user") == null ? (this.handleLogout) : (this.firebaseSignOut)} className="link" style={{color:"#2b3d52"}}>Logout</NavLink>
           </NavItem>
       </Fragment>
     );
