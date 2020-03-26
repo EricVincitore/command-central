@@ -23,19 +23,27 @@ export default {
   },
 
   signUp: function(newUser) {
-    return axios.post("/register", newUser)
+    return axios.post("/register", newUser);
   },
 
-  FBLogin: function() {
-    return axios({
-     method: "GET",
-     url: "/auth/facebook",
-     headers: {
-      "Access-Control-Allow-Origin": "*",
-      "content-type": "application/json",
-      "Set-Cookie": "cross-site-cookie=name; SameSite=None; Secure"
-     }
-  });
+  // FBLogin: function() {
+  //   return axios({
+  //    method: "GET",
+  //    url: "/auth/facebook",
+  //    headers: {
+  //     "Access-Control-Allow-Origin": "*",
+  //     "content-type": "application/json",
+  //     "Set-Cookie": "cross-site-cookie=name; SameSite=None; Secure"
+  //    }
+  // });
+  // },
+
+  firebaseLogin: function () {
+    return axios.get("/firebase/auth");
+  },
+
+  firebaseLogout: function () {
+    return axios.get("/firebase/signout")
   },
 
   login: function(user) {

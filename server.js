@@ -9,6 +9,7 @@ var session = require('express-session');
 var passport = require('passport');
 var User = require('./models/user')
 
+
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -28,8 +29,6 @@ app.use(passport.session());
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 };
-
-
 
 const apiRoutes = require("./routes/apiRoutes")
 apiRoutes(app);

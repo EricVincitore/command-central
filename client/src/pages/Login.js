@@ -13,38 +13,8 @@ import {
 } from 'reactstrap';
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
-import firebase from "firebase";
+//import firebase from "firebase";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyAJ75gK9jAei2zwhvi3hVP1-CCgqw6HiZk",
-  authDomain: "command-central-511fc.firebaseapp.com",
-  databaseURL: "https://command-central-511fc.firebaseio.com",
-  projectId: "command-central-511fc",
-  storageBucket: "command-central-511fc.appspot.com",
-  messagingSenderId: "229958608",
-  appId: "1:229958608:web:3cd0bd5347bfd49f940fd5"
-};
-
-firebase.initializeApp(firebaseConfig);
-
-var provider = new firebase.auth.FacebookAuthProvider();
-
-firebase.auth().signInWithPopup(provider).then(function(result) {
-  // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-  var token = result.credential.accessToken;
-  // The signed-in user info.
-  var user = result.user;
-  // ...
-}).catch(function(error) {
-  // Handle Errors here.
-  var errorCode = error.code;
-  var errorMessage = error.message;
-  // The email of the user's account used.
-  var email = error.email;
-  // The firebase.auth.AuthCredential type that was used.
-  var credential = error.credential;
-  // ...
-});
 
 
 class Login extends Component {
@@ -80,6 +50,15 @@ class Login extends Component {
       .catch(console.error())
     }
   }
+
+  handleFirebaseLogin = (event) => {
+    API.firebaseLogin()
+    .then((data) => {
+      console.log(data)
+      window.location.href = "/homepage"
+    })
+    .catch(console.error());
+  };
 
 
   render() {
@@ -117,7 +96,7 @@ class Login extends Component {
                           </Col>
                           <Col md="5"/>
                           <Col md="3" sm="12">
-                            <Button onClick={this.signInWithPopup}>Sign in with Facebook</Button>
+                            <Button onClick={this.handleFirebaseLogin}>Sign in with Facebook</Button>
                           </Col>
                       </Row>
                       <br/>
