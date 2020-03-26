@@ -39,13 +39,12 @@ class Login extends Component {
       console.log(this.state.username)
       console.log(this.state.password)
       console.log("_______________________________")
-      API.login({
+      API.Login({
         username: this.state.username,
         password: this.state.password
       })
       .then((data) => {
-        sessionStorage.setItem("user",data.user)
-        window.location.href = "/homepage"
+        window.location.href = "/"
       })
       .catch(console.error())
     }
@@ -55,7 +54,7 @@ class Login extends Component {
     API.firebaseLogin()
     .then((data) => {
       console.log(data)
-      window.location.href = "/homepage"
+      window.location.href = "/"
     })
     .catch(console.error());
   };

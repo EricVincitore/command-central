@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import signIn from "./pages/Login"
+import SignIn from "./pages/Login"
 import Homepage from "./pages/Homepage";
 import Metagame from "./pages/Metagame";
 import CardDatabase from "./pages/Database";
@@ -17,13 +17,12 @@ function App() {
         <Navbar />
         <Switch>
           <Route exact path="/" component={Homepage} />
-          <Route exact path="/homepage" component={Homepage} />
           <Route exact path="/metagame" component={Metagame} />
           <Route exact path="/cardDatabase" component={CardDatabase} />
           <Route exact path="/resources" component={Resources} />
-          <Route exact path="/signIn" component={signIn} />
+          <Route exact path="/signin" component={SignIn} />
           <Route exact path="/signUp" component={SignUp} />
-          <Route exact path="/signOut" component={signIn} />
+          <Route exact path="/signOut" component={SignIn} />
           <Route component={NoMatch} />
         </Switch>
       </div>

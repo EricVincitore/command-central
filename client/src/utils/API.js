@@ -46,11 +46,12 @@ export default {
     return axios.get("/firebase/signout")
   },
 
-  login: function(user) {
+  Login: function(user) {
     return axios.post("/login", user)
   },
 
-  user: function() {
+  
+  User: function() {
     return axios.get("/user")
   },
 
