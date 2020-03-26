@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Login from "./pages/Login"
+import signIn from "./pages/Login"
 import Homepage from "./pages/Homepage";
 import Metagame from "./pages/Metagame";
 import CardDatabase from "./pages/Database";
@@ -21,9 +21,9 @@ function App() {
           <Route exact path="/metagame" component={Metagame} />
           <Route exact path="/cardDatabase" component={CardDatabase} />
           <Route exact path="/resources" component={Resources} />
-          <Route exact path="/login" component={Login} />
+          <Route exact path="/signIn" component={signIn} />
           <Route exact path="/signUp" component={SignUp} />
-          <Route exact path="/logout" component={Login} />
+          <Route exact path="/signOut" component={signIn} />
           <Route component={NoMatch} />
         </Switch>
       </div>
