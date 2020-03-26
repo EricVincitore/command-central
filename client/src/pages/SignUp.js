@@ -60,7 +60,7 @@ class SignUp extends Component {
       })
       .then((response) => {
         window.sessionStorage.setItem("user", response.data)
-        window.location.href = "/homepage"
+        window.location.href = "/"
       })
     }
   }

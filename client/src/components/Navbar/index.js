@@ -68,36 +68,7 @@ class Top extends Component {
   
 
   render() {
-
-    // Navbar.propTypes = {
-    //   fixed: PropTypes.string
-    // };
-    // const userLinks = (
-    //   <Fragment>
-        
-    //   </Fragment>
-    // );
-    // const guestLinks = (
-    //   <Fragment>
-    //     <NavItem>
-    //       <NavLink href="/homepage" className="link" style={{color:"#2b3d52"}}>Homepage</NavLink>
-    //     </NavItem>
-    //     <NavItem>
-    //       <NavLink href="/metagame" className="link" style={{color:"#2b3d52"}}>Metagame</NavLink>
-    //     </NavItem>
-    //     <NavItem>
-    //       <NavLink href="/cardDatabase" className="link" style={{color:"#2b3d52"}}>Card Database</NavLink>
-    //     </NavItem>
-    //     <NavItem>
-    //       <NavLink href="/Resources" className="link" style={{color:"#2b3d52"}}>Resources</NavLink>
-    //     </NavItem>
-    //     <NavItem>
-    //       <NavLink href="/login" className="link" style={{color:"#2b3d52"}}>Login</NavLink>
-    //     </NavItem>
-    //   </Fragment>
-    // )
     return(
-      
     
       <Navbar className ="nav-bar" style={navSettings} light expand="md">
         <NavbarBrand href="/" className="navBrand" style={{color:"#2b3d52"}}>Command Central</NavbarBrand>
@@ -117,7 +88,13 @@ class Top extends Component {
             <NavLink href="/Resources" className="link" style={{color:"#2b3d52"}}>Resources</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink  href={sessionStorage.getItem("user")===null || sessionStorage.getItem("user").length === 0 || sessionStorage.getItem("user").length === undefined ? "/signin" : "/"} onClick = {sessionStorage.getItem("user")===null || sessionStorage.getItem("user").length === 0 || sessionStorage.getItem("user").length === undefined ? this.handleLogin : this.handleLogout} className="link" style={{color:"#2b3d52"}}>{sessionStorage.getItem("user")===null || sessionStorage.getItem("user").length === 0 || sessionStorage.getItem("user").length === undefined ? "Login" : "Logout"}</NavLink>
+            <NavLink  
+              href={sessionStorage.getItem("user")===null || sessionStorage.getItem("user").length === 0 || sessionStorage.getItem("user").length === undefined ? "/signin" : "/"} 
+              onClick = {sessionStorage.getItem("user")===null || sessionStorage.getItem("user").length === 0 || sessionStorage.getItem("user").length === undefined ? this.handleLogin : this.handleLogout} 
+              className="link" 
+              style={{color:"#2b3d52"}}>
+                {sessionStorage.getItem("user")===null || sessionStorage.getItem("user").length === 0 || sessionStorage.getItem("user").length === undefined ? "Login" : "Logout"}
+              </NavLink>
           </NavItem>
           </Nav>
         </Collapse>

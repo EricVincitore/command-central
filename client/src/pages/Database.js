@@ -116,19 +116,6 @@ class Database extends Component {
                       disabled={!(this.state.name)}
                       onClick={this.handleOracleSubmit}>Search by Text
                   </Button>{' '}
-
-                  <br/>
-                  <h3 style={{textAlign:"center", color:"#fff"}}>WishList:</h3>
-                  {this.state.wishlist.length ? (
-                    <h4>cards are in the database</h4>
-                  ) : (
-                    <h4 style={{textAlign:"center", color:"#fff"}}>
-                      {sessionStorage.getItem("user") == null ? ( 
-                      "Login to save card to your wishlist!"
-                    ) : (
-                      "Click 'Save Card' to save a card to the wishlist!"
-                    )}</h4>
-                  )}
                   
               </Col>
           
