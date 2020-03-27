@@ -26,53 +26,16 @@ export default {
     return axios.post("/register", newUser);
   },
 
-  // FBLogin: function() {
-  //   return axios({
-  //    method: "GET",
-  //    url: "/auth/facebook",
-  //    headers: {
-  //     "Access-Control-Allow-Origin": "*",
-  //     "content-type": "application/json",
-  //     "Set-Cookie": "cross-site-cookie=name; SameSite=None; Secure"
-  //    }
-  // });
-  // },
-
-  firebaseLogin: function () {
-    return axios.get("/firebase/auth");
-  },
-
-  firebaseLogout: function () {
-    return axios.get("/firebase/signout")
-  },
-
   Login: function(user) {
     return axios.post("/login", user)
   },
 
-  
   User: function() {
     return axios.get("/user")
   },
 
   logout: function() {
     return axios.get("/logout")
-  },
-
-  getCards: function() {
-    return axios.get("/api/cards");
-  },
-  
-  getCard: function(id) {
-    return axios.get("/api/cards/" + id);
-  },
-  
-  deleteCard: function(id) {
-    return axios.delete("/api/cards/" + id);
-  },
-  
-  saveCard: function(CardData) {
-    return axios.post("/api/cards", CardData);
   }
   
 };

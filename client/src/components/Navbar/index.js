@@ -7,9 +7,9 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink
+  NavLink,
+  NavbarText
 } from 'reactstrap';
-import firebase from "firebase"
 
 const navSettings = {
   position: "fixed",
@@ -24,23 +24,25 @@ const navSettings = {
 
 class Top extends Component {
   state = {
-    isOpen: false
+    isOpen: false,
+    user: false
   };
 
   componentDidMount(){
-    API.User()
-    .then((response)=>{
-      sessionStorage.setItem("user", JSON.stringify(response.data))
-    })
-  }
+    
+    
+    console.log(window.location.pathname)
+    console.log(sessionStorage.getItem("user"))
+      if (sessionStorage.getItem("user") !== null) {
+        this.setState({
+          user: !this.state.user
+        });
+       document.getElementById("loginBtn").innerHTML ="Logout";
+      
+      };
+  };
   
-  firebaseSignOut = () => {
-    firebase.auth().signOut().then(function() {
-      // Sign-out successful.
-    }).catch(function(error) {
-      // An error happened.
-    });
-  }
+  
 
   toggle = () => {
     this.setState({
@@ -50,20 +52,26 @@ class Top extends Component {
 
   handleLogout = (event) => {
     event.preventDefault();
-    API.logout()
-    .then(() => {
-      sessionStorage.setItem("user", null)
-      window.location.href = "/"
-    })
-  }
+    console.log("logout on click")
+      API.logout()
+      .then(() => {
+        //console.log(sessionStorage.getItem("user"))
+        sessionStorage.removeItem("user")
+        this.setState({
+          user: false
+        });
+        document.getElementById("loginBtn").innerHTML ="Login";
+      })
+  };
 
   handleLogin = (event) => {
     event.preventDefault();
-    API.Login()
-    .then((response)=> {
-      sessionStorage.setItem("user", JSON.stringify(response.data))
-    })
-  }
+    // API.Login()
+    // .then((response)=> {
+    //   sessionStorage.setItem("user", JSON.stringify(response.data))
+    // })
+    window.location.href = "/signin"
+  };
   
   
 
@@ -89,11 +97,12 @@ class Top extends Component {
           </NavItem>
           <NavItem>
             <NavLink  
-              href={sessionStorage.getItem("user")===null || sessionStorage.getItem("user").length === 0 || sessionStorage.getItem("user").length === undefined ? "/signin" : "/"} 
-              onClick = {sessionStorage.getItem("user")===null || sessionStorage.getItem("user").length === 0 || sessionStorage.getItem("user").length === undefined ? this.handleLogin : this.handleLogout} 
-              className="link" 
+              href={(this.state.user) ? "/": "/signin"} 
+              onClick = {(this.state.user) ? this.handleLogout : this.handleLogin } 
+              className="link"
+              id="loginBtn" 
               style={{color:"#2b3d52"}}>
-                {sessionStorage.getItem("user")===null || sessionStorage.getItem("user").length === 0 || sessionStorage.getItem("user").length === undefined ? "Login" : "Logout"}
+                {(window.location.pathname == "/signin") ? "" : "Login" }
               </NavLink>
           </NavItem>
           </Nav>
@@ -101,9 +110,6 @@ class Top extends Component {
       </Navbar>
     );
   };
-
-  
-  
 }
 
 
