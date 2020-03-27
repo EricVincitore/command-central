@@ -75,15 +75,29 @@ class Database extends Component {
       };
     };
 
-    checkSession = () => {
-      
+    saveCard = (event) => {
+      this.setState({
+        name: this.name,
+        cmc: this.mana_cost,
+        set: this.set_name
+      })
+
+      API.SaveCard({
+        name: this.state.name,
+        cmc: this.state.cmc,
+        set: this.state.set
+      })
+      .then((response) => {
+        console.log("saved following card")
+        console.log(response)
+      })
     }
 
   render() {
     return (
       <div className="page">
 
-      <div>
+      {/* <div>
         <Modal isOpen={this.isOpen} toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
           <ModalBody>
@@ -92,7 +106,7 @@ class Database extends Component {
             <Button color="secondary" onClick={this.toggle}>Close</Button>
           </ModalFooter>
         </Modal>
-      </div>
+      </div> */}
         <Container fluid>
           <Row>
             <Col md="12" sm="12">
@@ -152,7 +166,10 @@ class Database extends Component {
                       <p>Commander Legality: {card.legalities.commander}</p>
                       <p>Price in USD: {this.checkPrice(card.prices.usd)}</p>
                       <p>Foil Price in USD: {this.checkPrice(card.prices.usd_foil)}</p>
-                      <SaveBtn className="submitBtn save-btn btn" style={{backgroundColor:"#4e7781", color:"#fff"}}/>
+                      {/* <SaveBtn 
+                      onClick={this.saveCard}
+                      className="submitBtn save-btn btn" 
+                      style={{backgroundColor:"#4e7781", color:"#fff"}}/> */}
                       </ListItem>
                     )
                   })

@@ -14,10 +14,6 @@ var CardsSchema = new Schema({
     },
     set: {
       type: String,
-    },
-    description :{
-      type: String,
-      required: true
     }
 
 });

@@ -7,8 +7,7 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
-  NavbarText
+  NavLink
 } from 'reactstrap';
 
 const navSettings = {
@@ -25,7 +24,8 @@ const navSettings = {
 class Top extends Component {
   state = {
     isOpen: false,
-    user: false
+    user: false,
+    name: ""
   };
 
   componentDidMount(){
@@ -35,11 +35,13 @@ class Top extends Component {
     console.log(sessionStorage.getItem("user"))
       if (sessionStorage.getItem("user") !== null) {
         this.setState({
-          user: !this.state.user
+          user: !this.state.user,
+          name : sessionStorage.getItem("user").name
         });
-       document.getElementById("loginBtn").innerHTML ="Logout";
-      
+        document.getElementById("loginBtn").innerHTML ="Logout";
+        
       };
+      
   };
   
   
@@ -76,6 +78,7 @@ class Top extends Component {
   
 
   render() {
+    console.log(sessionStorage.getItem("user"))
     return(
     
       <Navbar className ="nav-bar" style={navSettings} light expand="md">

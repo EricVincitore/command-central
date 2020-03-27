@@ -26,6 +26,10 @@ export default {
     return axios.post("/register", newUser);
   },
 
+  SaveCard: function(newCard) {
+    return axios.post("/api/saveCard", newCard)
+  },
+
   Login: function(user) {
     return axios.post("/login", user)
   },
