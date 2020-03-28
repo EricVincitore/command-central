@@ -40,8 +40,9 @@ class SignIn extends Component {
         username: this.state.username,
         password: this.state.password
       })
-      .then((data) => {
-        sessionStorage.setItem("user", JSON.stringify(data))
+      .then((response) => {
+        let user = JSON.stringify(response.data)
+        window.sessionStorage.setItem("user", JSON.parse(user).name)
         window.location.href = "/"
       })
       .catch(console.error())

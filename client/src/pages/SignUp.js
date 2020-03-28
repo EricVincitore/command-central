@@ -59,7 +59,8 @@ class SignUp extends Component {
         password: this.state.password
       })
       .then((response) => {
-        window.sessionStorage.setItem("user", JSON.stringify(response.data))
+        let user = JSON.stringify(response.data)
+        window.sessionStorage.setItem("user", JSON.parse(user).name)
         window.location.href = "/"
       })
     }

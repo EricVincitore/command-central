@@ -36,7 +36,7 @@ class Top extends Component {
       if (sessionStorage.getItem("user") !== null) {
         this.setState({
           user: !this.state.user,
-          name : JSON.parse(sessionStorage.getItem("user")).name
+          name : sessionStorage.getItem("user")
         });
         document.getElementById("loginBtn").innerHTML ="Logout";
         
@@ -66,10 +66,6 @@ class Top extends Component {
 
   handleLogin = (event) => {
     event.preventDefault();
-    // API.Login()
-    // .then((response)=> {
-    //   sessionStorage.setItem("user", JSON.stringify(response.data))
-    // })
     window.location.href = "/signin"
   };
   
