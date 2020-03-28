@@ -7,8 +7,10 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink
+  NavLink,
+  NavbarText
 } from 'reactstrap';
+
 
 const navSettings = {
   position: "fixed",
@@ -29,21 +31,17 @@ class Top extends Component {
   };
 
   componentDidMount(){
-    
-    
     console.log(window.location.pathname)
     console.log(sessionStorage.getItem("user"))
       if (sessionStorage.getItem("user") !== null) {
         this.setState({
           user: !this.state.user,
-          name : sessionStorage.getItem("user").name
+          name : JSON.parse(sessionStorage.getItem("user")).name
         });
         document.getElementById("loginBtn").innerHTML ="Logout";
         
       };
-      
-  };
-  
+  }
   
 
   toggle = () => {
@@ -64,7 +62,7 @@ class Top extends Component {
         });
         document.getElementById("loginBtn").innerHTML ="Login";
       })
-  };
+  }
 
   handleLogin = (event) => {
     event.preventDefault();
@@ -105,14 +103,20 @@ class Top extends Component {
               className="link"
               id="loginBtn" 
               style={{color:"#2b3d52"}}>
-                {(window.location.pathname == "/signin") ? "" : "Login" }
+                {(window.location.pathname === "/signin") ? "" : "Login" }
               </NavLink>
           </NavItem>
           </Nav>
+          <NavbarText style={{color:"#2b3d52"}}>
+            {sessionStorage.getItem("user") !== null ? "Hello " + this.state.name : ""}
+          </NavbarText>
         </Collapse>
       </Navbar>
     );
   };
+
+  
+  
 }
 
 

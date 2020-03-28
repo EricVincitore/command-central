@@ -1,21 +1,18 @@
 import React, { Component } from "react";
 import { Container, Row, Col } from 'reactstrap';
 import Jumbotron from "../components/Jumbotron";
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Button } from 'reactstrap';
 import {Input} from "../components/Form";
 import API from "../utils/API";
 import { List, ListItem } from "../components/List";
-import SaveBtn from "../components/SaveBtn";
 import Footer from "../components/Footer";
 
 
 
 class Database extends Component {
     state = {
-      isOpen: false,
-      wishlist: [],
       cards: [],
-      modalImg:[],
+      spelling:"",
       layout:"",
       name: "",
       cmc: "",
@@ -96,17 +93,6 @@ class Database extends Component {
   render() {
     return (
       <div className="page">
-
-      {/* <div>
-        <Modal isOpen={this.isOpen} toggle={this.toggle}>
-          <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
-          <ModalBody>
-          </ModalBody>
-          <ModalFooter>
-            <Button color="secondary" onClick={this.toggle}>Close</Button>
-          </ModalFooter>
-        </Modal>
-      </div> */}
         <Container fluid>
           <Row>
             <Col md="12" sm="12">

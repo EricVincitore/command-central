@@ -56,10 +56,10 @@ class SignUp extends Component {
         name: this.state.name,
         email: this.state.email,
         username: this.state.username,
-        password: this.state.username
+        password: this.state.password
       })
       .then((response) => {
-        window.sessionStorage.setItem("user", response.data)
+        window.sessionStorage.setItem("user", JSON.stringify(response.data))
         window.location.href = "/"
       })
     }
@@ -112,7 +112,7 @@ class SignUp extends Component {
                       <Row>
                           <Col md="1" sm="1"/>
                           <Col md="8" sm="11">
-                          <Link to="/login"><Button style={{backgroundColor:"#4e7781", color:"#fff"}} className="submitBtn">Return to Login</Button></Link>
+                          <Link to="/signin"><Button style={{backgroundColor:"#4e7781", color:"#fff"}} className="submitBtn">Return to Login</Button></Link>
                           </Col>
                       </Row>
                       <br/> 

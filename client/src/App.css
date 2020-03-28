@@ -1,3 +1,5 @@
+
+
 .container {
   text-align: center;
   height: 100%;
@@ -49,4 +51,11 @@ iframe {
 
 .nav-bar {
   position: fixed;
+}
+
+.jumbo {
+  background-image: url(./components/Jumbotron/plane.png);
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
 }

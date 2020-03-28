@@ -14,7 +14,7 @@ import {
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
  
-class Login extends Component {
+class SignIn extends Component {
  
   state = {
     user: [],
@@ -105,4 +105,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default SignIn;

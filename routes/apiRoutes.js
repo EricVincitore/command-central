@@ -3,7 +3,6 @@ const mongoose = require("mongoose")
 const cheerio = require("cheerio");
 const db = require("../models")
 const passport = require("passport")
-const firebase =  require("firebase");
 
 const BASEURL = "https://api.scryfall.com/cards/search?q=";
 
@@ -171,7 +170,12 @@ function apiRoutes (app) {
     // Endpoint to login
     app.post('/login',
         passport.authenticate('local'),
+        // {
+        //     successRedirect: "/",
+        //     failureRedirect: "/signin"
+        // }
         function(req, res) {
+            console.log(" in login route")
             console.log(req.user)
             res.send(req.user);
         }
