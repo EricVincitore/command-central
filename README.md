@@ -1,6 +1,6 @@
 # command-central
 
-Welcome to Command Central! this is you7r ideal site for all aspects of the commander format.  
+Welcome to Command Central! Your ideal site for all aspects of the commander format.  
 
 ## Overview
 
