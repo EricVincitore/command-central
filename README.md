@@ -9,7 +9,7 @@ Command Central is an information focused app that can be used by commander play
 ## Features and Instructions
 
 ### Homepage
-When the user navigates to his page they will be able to get the most recent articles from EDHRec, The Command Zone and Tolarian Community College. 
+When the user navigates to his page they will be able to get the most recent articles from EDHRec, The Command Zone and Commander Clash. 
 
 1. To access the articles start by navigating to the homepage.  
 

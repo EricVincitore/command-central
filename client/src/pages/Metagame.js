@@ -58,6 +58,7 @@ class Homepage extends Component {
                     return ( 
                       
                       <ListItem key = {deck.title}>
+                      <img className="DeckImg" src = {deck.img} alt={deck.title}/>
                       <a href={deck.link} target="_blank" rel="noopener noreferrer"><h4 style={{color:"#5fb9ce"}}>{deck.title}</h4></a>
                       <p style={{color:"#2b3d52"}}>Metagame Percent: {deck.meta}</p>
                       <p style={{color:"#2b3d52"}}>Common cards: {deck.list}</p>
@@ -86,6 +87,7 @@ class Homepage extends Component {
                     return ( 
                       
                       <ListItem key = {deck.title}>
+                        <img className="DeckImg" src = {deck.img} alt={deck.title}/>
                         <a href={deck.link} target="_blank" rel="noopener noreferrer"><h4 style={{color:"#5fb9ce"}}>{deck.title}</h4></a>
                         <p style={{color:"#2b3d52"}}>Common cards: {deck.list}</p>
                         <p style={{color:"#2b3d52"}}>Example Price: {deck.price}</p>
