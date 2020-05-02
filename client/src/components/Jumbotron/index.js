@@ -1,8 +1,5 @@
 import React from 'react';
 import { Jumbotron, Container } from 'reactstrap';
-import image from './plane.png'
-
-//style={{ backgroundImage: 'url(' + image + ')'}}
 
 const Example = (props) => {
   return (
