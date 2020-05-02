@@ -18,8 +18,8 @@ export default {
     return axios.get("/czscrape");
   },
 
-  tcc: function() {
-    return axios.get("/tccscrape");
+  cc: function() {
+    return axios.get("/ccscrape");
   },
 
   signUp: function(newUser) {

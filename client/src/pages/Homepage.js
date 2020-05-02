@@ -12,7 +12,7 @@ class Homepage extends Component {
   state = {
     EdhRecArticles: [],
     CZArticles: [],
-    TCCArticles: [],
+    CCArticles: [],
     title: "",
     img: "",
     description: "",
@@ -37,11 +37,11 @@ class Homepage extends Component {
     .catch(err => console.log(err));
   }
 
-  tcc = () => {
-    API.tcc()
+  cc = () => {
+    API.cc()
     .then(res => {
       console.log(res)
-    this.setState({TCCArticles: res.data})
+    this.setState({CCArticles: res.data})
     })
     .catch(err => console.log(err));
   }
@@ -51,7 +51,7 @@ class Homepage extends Component {
     event.preventDefault();
     this.edhRec();
     this.commandZone();
-    this.tcc();
+    this.cc();
     
   };
 
@@ -139,14 +139,14 @@ class Homepage extends Component {
             <h3 style={{color:"#fff"}}>Tolarian Community College:</h3>
             <br/>
             <div>
-              {this.state.TCCArticles.length ? (
+              {this.state.CCArticles.length ? (
                 <List>
                   
-                  {this.state.TCCArticles.map(article => {
+                  {this.state.CCArticles.map(article => {
                       return ( 
                           
                         <ListItem key = {article.title}>
-                        <iframe title = {article.title} class="articleImg" src = {article.img} alt={article.title}/>
+                          <iframe title = {article.title} class="articleImg" src = {article.img} alt={article.title}/>
                           <a href={article.link} target="_blank" rel="noopener noreferrer">
                           <h4 style={{color:"#5fb9ce"}}>{article.title}</h4>
                           </a>

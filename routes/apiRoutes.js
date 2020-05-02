@@ -82,22 +82,24 @@ function apiRoutes (app) {
         });
     });
 
-    app.get("/tccscrape", function (req, res) {
-        axios.get("https://www.tolariancommunitycollege.com/category/youtube/commander-edh/").then(function (response) {
+    app.get("/ccscrape", function (req, res) {
+        axios.get("https://www.mtggoldfish.com/series/commander-clash").then(function (response) {
 
             let $ = cheerio.load(response.data);
 
             articles = [];
+            
 
-            $(".blog-item-wrap").each(function (i, element) {
+            $(".article-tile").each(function (i, element) {
 
                 let result = {};
-                result.title = $(element).children(".post-inner-content").children(".entry-header").children(".entry-title").children("a").text();
-                result.img = $(element).children(".videoWrapper").children().attr("src")
-                result.description = $(element).children(".post-inner-content").children(".entry-content").children("p").text();
-                result.link = $(element).children(".post-inner-content").children(".entry-header").children(".entry-title").children("a").attr("href");
+                result.title = $(element).children(".article-tile-title").children(".stealth-link").text();
+                result.img = $(element).children(".article-tile-image").children(".card-tile").children(".card-image-tile").attr("style")
+                result.description = $(element).children(".article-tile-abstract").text();
+                result.link = $(element).children(".article-tile-title").children(".stealth-link").attr("href");
                 articles.push(result)
             });
+            console.log(articles)
             res.send(articles);
         });
     });

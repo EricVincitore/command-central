@@ -13,7 +13,7 @@ import SaveBtn from "../components/SaveBtn";
 class Database extends Component {
     state = {
       cards: [],
-      spelling:"",
+      savedCards: [],
       layout:"",
       name: "",
       cmc: "",
@@ -130,8 +130,9 @@ class Database extends Component {
                   onClick={this.handleOracleSubmit}>Search by Text
               </Button>{' '}
               <br/>
-              {sessionStorage.getItem("user") !== null ||  sessionStorage.getItem("user") !== undefined? (
+              {sessionStorage.getItem("user") !== null ||  sessionStorage.getItem("user") !== undefined ? (
                   <h1 style={{color:"#fff"}}>{this.state.username}'s Wishlist</h1>
+                  
 
                 ):(
                   <h1 style={{color:"#fff"}}>Log In to use the Wishlist</h1>
@@ -172,10 +173,14 @@ class Database extends Component {
                       <p>Commander Legality: {card.legalities.commander}</p>
                       <p>Price in USD: {this.checkPrice(card.prices.usd)}</p>
                       <p>Foil Price in USD: {this.checkPrice(card.prices.usd_foil)}</p>
-                      <SaveBtn 
-                      onClick={this.saveCard}
-                      className="submitBtn save-btn btn" 
-                      style={{backgroundColor:"#4e7781", color:"#fff"}}/>
+                      {sessionStorage.getItem("user") !== null ||  sessionStorage.getItem("user") !== undefined ? (
+                        <SaveBtn 
+                        onClick={this.saveCard}
+                        className="submitBtn save-btn btn" 
+                        style={{backgroundColor:"#4e7781", color:"#fff"}}/>
+                      ):(
+                        ""
+                      )}
                       </ListItem>
                     )
                   })
