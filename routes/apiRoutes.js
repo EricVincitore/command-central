@@ -99,7 +99,7 @@ function apiRoutes (app) {
                 result.link = "https://www.mtggoldfish.com" + $(element).children(".article-tile-title").children(".stealth-link").attr("href");
                 articles.push(result)
             });
-            console.log(articles)
+        
             res.send(articles);
         });
     });
