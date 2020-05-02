@@ -1,7 +1,5 @@
 import React from 'react';
 import { Jumbotron, Container } from 'reactstrap';
-import fs from 'fs';
-import gm from 'gm';
 import image from './plane.png'
 
 //style={{ backgroundImage: 'url(' + image + ')'}}
