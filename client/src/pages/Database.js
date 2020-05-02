@@ -21,7 +21,19 @@ class Database extends Component {
       description: "",
       commanderLegal:"",
       price: "",
-      image: ""
+      image: "",
+      user:false,
+      username: ""
+    };
+
+    componentDidMount(){
+      console.log(sessionStorage.getItem("user"))
+      if (sessionStorage.getItem("user") !== null) {
+        this.setState({
+          user: !this.state.user,
+          username : sessionStorage.getItem("user")
+        });
+      };
     };
 
     toggle = () => {
@@ -100,24 +112,30 @@ class Database extends Component {
             </Col>
           </Row>
           <Row>
-              <Col sm="12" md="5" style={{textAlign:"center"}}>
-                  <h1 style={{color:"#fff"}}>Card Search</h1>
-                  <Input
-                      value={this.state.name}
-                      onChange={this.handleInputChange}
-                      name="name"
-                      placeholder="Search Term (Required)"
-                  />
-                  <Button className="submitBtn" style={{backgroundColor:"#5fb9ce", color:"#fff"}}
-                      disabled={!(this.state.name)}
-                      onClick={this.handleFormSubmit}>Search by Name
-                  </Button>{' '}
-                  <Button className="submitBtn" style={{backgroundColor:"#4e7781", color:"#fff"}}
-                      disabled={!(this.state.name)}
-                      onClick={this.handleOracleSubmit}>Search by Text
-                  </Button>{' '}
-                  
-              </Col>
+            <Col sm="12" md="5" style={{textAlign:"center"}}>
+              <h1 style={{color:"#fff"}}>Card Search</h1>
+              <Input
+                  value={this.state.name}
+                  onChange={this.handleInputChange}
+                  name="name"
+                  placeholder="Search Term (Required)"
+              />
+              <Button className="submitBtn" style={{backgroundColor:"#5fb9ce", color:"#fff"}}
+                  disabled={!(this.state.name)}
+                  onClick={this.handleFormSubmit}>Search by Name
+              </Button>{' '}
+              <Button className="submitBtn" style={{backgroundColor:"#4e7781", color:"#fff"}}
+                  disabled={!(this.state.name)}
+                  onClick={this.handleOracleSubmit}>Search by Text
+              </Button>{' '}
+
+              {sessionStorage.getItem("user") !== null ? (
+                <h3 style={{textAlign:"center", color:"#fff"}}>{this.state.username}'s Wishlist</h3>
+                ):(
+                  <h3 style={{textAlign:"center", color:"#fff"}}>Sign in to use the Wishlist</h3> 
+                )}
+                
+            </Col>
           
             <Col sm="12" md="7">
               <h1 style={{textAlign:"center", color:"#fff"}}>Results</h1>
