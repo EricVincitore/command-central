@@ -94,12 +94,12 @@ function apiRoutes (app) {
 
                 let result = {};
                 result.title = $(element).children(".article-tile-title").children(".stealth-link").text();
-                result.img = $(element).children(".article-tile-image").children(".card-tile").children(".card-image-tile").attr("style")
+                result.img = $(element).children(".article-tile-image").children(".card-tile").children(".card-image-tile").attr("style").replace("background-image: url('", "").replace("thumbnail_","").replace("');", "")
                 result.description = $(element).children(".article-tile-abstract").text();
                 result.link = "https://www.mtggoldfish.com" + $(element).children(".article-tile-title").children(".stealth-link").attr("href");
                 articles.push(result)
             });
-        
+            console.log(articles)
             res.send(articles);
         });
     });

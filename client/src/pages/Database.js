@@ -173,7 +173,7 @@ class Database extends Component {
                       <p>Commander Legality: {card.legalities.commander}</p>
                       <p>Price in USD: {this.checkPrice(card.prices.usd)}</p>
                       <p>Foil Price in USD: {this.checkPrice(card.prices.usd_foil)}</p>
-                      {sessionStorage.getItem("user") !== null ||  sessionStorage.getItem("user") !== undefined ? (
+                      {sessionStorage.getItem("user") !== null ||  sessionStorage.getItem("user") !== undefined || sessionStorage.getItem("user") !== "" ? (
                         <SaveBtn 
                         onClick={this.saveCard}
                         className="submitBtn save-btn btn" 
