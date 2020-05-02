@@ -113,7 +113,7 @@ class Database extends Component {
           </Row>
           <Row>
             <Col sm="12" md="5" style={{textAlign:"center"}}>
-              <h1 style={{color:"#fff"}}>Card Search</h1>
+              
               <Input
                   value={this.state.name}
                   onChange={this.handleInputChange}
@@ -129,10 +129,10 @@ class Database extends Component {
                   onClick={this.handleOracleSubmit}>Search by Text
               </Button>{' '}
 
-              {sessionStorage.getItem("user") !== null ? (
-                <h3 style={{textAlign:"center", color:"#fff"}}>{this.state.username}'s Wishlist</h3>
+              {sessionStorage.getItem("user") !== null || sessionStorage.getItem("user") !== "" || sessionStorage.getItem("user") !== undefined ? (
+                  <h1 style={{color:"#fff"}}>{this.state.username}</h1>
                 ):(
-                  <h3 style={{textAlign:"center", color:"#fff"}}>Sign in to use the Wishlist</h3> 
+                  <h1 style={{color:"#fff"}}>Log In to use the Wishlist</h1>
                 )}
                 
             </Col>
