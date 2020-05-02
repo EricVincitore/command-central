@@ -128,9 +128,10 @@ class Database extends Component {
                   disabled={!(this.state.name)}
                   onClick={this.handleOracleSubmit}>Search by Text
               </Button>{' '}
-
+              <br/>
               {sessionStorage.getItem("user") !== null || sessionStorage.getItem("user") !== "" || sessionStorage.getItem("user") !== undefined ? (
                   <h1 style={{color:"#fff"}}>{this.state.username}</h1>
+
                 ):(
                   <h1 style={{color:"#fff"}}>Log In to use the Wishlist</h1>
                 )}
@@ -170,10 +171,10 @@ class Database extends Component {
                       <p>Commander Legality: {card.legalities.commander}</p>
                       <p>Price in USD: {this.checkPrice(card.prices.usd)}</p>
                       <p>Foil Price in USD: {this.checkPrice(card.prices.usd_foil)}</p>
-                      {/* <SaveBtn 
+                      <SaveBtn 
                       onClick={this.saveCard}
                       className="submitBtn save-btn btn" 
-                      style={{backgroundColor:"#4e7781", color:"#fff"}}/> */}
+                      style={{backgroundColor:"#4e7781", color:"#fff"}}/>
                       </ListItem>
                     )
                   })
