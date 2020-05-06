@@ -114,7 +114,7 @@ class Database extends Component {
           </Row>
           <Row>
             <Col sm="12" md="5" style={{textAlign:"center"}}>
-              
+            <h1 style={{textAlign:"center", color:"#fff"}}>Card Search</h1>
               <Input
                   value={this.state.name}
                   onChange={this.handleInputChange}
@@ -131,8 +131,14 @@ class Database extends Component {
               </Button>{' '}
               <br/>
               {sessionStorage.getItem("user") !== null ||  this.state.username !== "" ? (
-                  <h1 style={{color:"#fff"}}>{this.state.username}'s Wishlist</h1>
-                  
+                <h1 style={{color:"#fff"}}>{this.state.username}'s Wishlist</h1>
+                this.state.savedCards.length == 0 ? (
+                  <h2 style={{color:"#fff"}}>Click the "Save Card" button to add a card to your wishlist.</h2>
+                ) : (
+                  <List>
+
+                  </List>
+                )
 
                 ):(
                   <h1 style={{color:"#fff"}}>Log In to use the Wishlist</h1>
