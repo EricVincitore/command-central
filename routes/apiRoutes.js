@@ -111,7 +111,7 @@ function apiRoutes (app) {
         })
     });
 
-    app.post ("/api/saveCard", function (req, res) {
+    app.post("/api/saveCard", function (req, res) {
         var newCard = new db.Cards ({
             name: req.body.name,
             cmc: req.body.cmc,
@@ -143,14 +143,6 @@ function apiRoutes (app) {
     });
 
     app.post('/register', function(req, res){
-        // console.log("____________________________________________")
-        // console.log(req.body)
-        // console.log("____________________________________________")
-        // console.log("name: " + req.body.name)
-        // console.log("username: " + req.body.username)
-        // console.log("password: " + req.body.password)
-        // console.log("email: " + req.body.email)
-        // console.log("____________________________________________")
         var newUser = new db.User({
             name: req.body.name,
             email: req.body.email,
@@ -163,7 +155,7 @@ function apiRoutes (app) {
             res.send(user).end()
         });
         
-      });
+    });
 
 
     
