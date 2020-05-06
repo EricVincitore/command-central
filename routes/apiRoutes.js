@@ -118,7 +118,7 @@ function apiRoutes (app) {
             set: req.body.set
         });
 
-        db.Cards.createCards(newCard, function (err, card) {
+        db.Cards.create(newCard, function (err, card) {
             if (err) throw err
             res.send(card)
         });

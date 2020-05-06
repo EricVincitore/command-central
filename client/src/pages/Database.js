@@ -16,6 +16,7 @@ class Database extends Component {
       savedCards: [],
       layout:"",
       name: "",
+      cardName: "",
       cmc: "",
       set: "",
       rarity: "",
@@ -87,15 +88,11 @@ class Database extends Component {
 
     saveCard = (event) => {
       this.setState({
-        name: this.name,
-        cmc: this.mana_cost,
-        set: this.set_name
+        cardName: this.card.name
       })
 
       API.SaveCard({
-        name: this.state.name,
-        cmc: this.state.cmc,
-        set: this.state.set
+        name: this.state.cardName
       })
       .then((response) => {
         console.log("saved following card")
@@ -130,11 +127,11 @@ class Database extends Component {
                   onClick={this.handleOracleSubmit}>Search by Text
               </Button>{' '}
               <br/>
-              {sessionStorage.getItem("user") !== null ||  this.state.username !== "" ? (
+              {/* {sessionStorage.getItem("user") !== null ||  this.state.username !== "" ? (
                 <h1 style={{color:"#fff"}}>{this.state.username}'s Wishlist</h1>
 
-                ,this.state.savedCards.length == 0 ? (
-                  <h2 style={{color:"#fff"}}>Click the "Save Card" button to add a card to your wishlist.</h2>
+                ,this.state.savedCards.length === 0 ? (
+                  <h4 style={{color:"#fff"}}>Click the "Save Card" button to add a card to your wishlist.</h4>
                 ) : (
                   <List>
 
@@ -143,7 +140,7 @@ class Database extends Component {
 
                 ):(
                   <h1 style={{color:"#fff"}}>Log In to use the Wishlist</h1>
-                )}
+                )} */}
                 
             </Col>
           
@@ -180,14 +177,14 @@ class Database extends Component {
                       <p>Commander Legality: {card.legalities.commander}</p>
                       <p>Price in USD: {this.checkPrice(card.prices.usd)}</p>
                       <p>Foil Price in USD: {this.checkPrice(card.prices.usd_foil)}</p>
-                      {sessionStorage.getItem("user") !== null ||  this.state.username !== "" ? (
+                      {/* {sessionStorage.getItem("user") !== null ||  this.state.username !== "" ? (
                         <SaveBtn 
                         onClick={this.saveCard}
                         className="submitBtn save-btn btn" 
                         style={{backgroundColor:"#4e7781", color:"#fff"}}/>
                       ):(
                         ""
-                      )}
+                      )} */}
                       </ListItem>
                     )
                   })

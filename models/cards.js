@@ -7,13 +7,6 @@ var CardsSchema = new Schema({
     name: {
       type: String,
       required: true
-    },
-    cmc: {
-        type: String,
-        required: true
-    },
-    set: {
-      type: String,
     }
 
 });
