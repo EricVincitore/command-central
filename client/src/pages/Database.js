@@ -130,7 +130,7 @@ class Database extends Component {
                   onClick={this.handleOracleSubmit}>Search by Text
               </Button>{' '}
               <br/>
-              {sessionStorage.getItem("user") !== null ||  sessionStorage.getItem("user") !== undefined ? (
+              {sessionStorage.getItem("user") !== null ||  this.state.username !== "" ? (
                   <h1 style={{color:"#fff"}}>{this.state.username}'s Wishlist</h1>
                   
 
