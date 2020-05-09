@@ -86,13 +86,16 @@ class Database extends Component {
       };
     };
 
-    saveCard = (event) => {
+    saveCard = (card) => {
+
+
       this.setState({
-        cardName: this.card.name
-      })
+        cardName: this.data
+      });
+      console.log(this.state.cardName)
 
       API.SaveCard({
-        name: this.state.cardName
+        name: this.cardName
       })
       .then((response) => {
         console.log("saved following card")
