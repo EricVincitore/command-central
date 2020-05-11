@@ -83,7 +83,7 @@ class Database extends Component {
 
 
       this.setState({
-        cardName: this.state.cards.key
+        cardName: this.key
       });
       console.log(this.state.cardName)
 
