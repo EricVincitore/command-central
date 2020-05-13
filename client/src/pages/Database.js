@@ -81,20 +81,22 @@ class Database extends Component {
 
     saveCard = (card) => {
 
-
       this.setState({
-        cardName: this.key
+        cardName: card.name
+      }, () => {
+        console.log(this.state.cardName) // this prints correct cardName (we used callback)
       });
-      console.log(this.state.cardName)
-
+    
+      // console.log(this.state.cardName) // this will not print the correct card name because setState is async / batch operation
+    
       API.SaveCard({
-        name: this.cardName
+        name: card.name // use card object Or move this code in callback shown above
       })
       .then((response) => {
         console.log("saved following card")
         console.log(response)
       })
-    }
+    };
 
   render() {
     return (
@@ -174,10 +176,11 @@ class Database extends Component {
                       <p>Price in USD: {this.checkPrice(card.prices.usd)}</p>
                       <p>Foil Price in USD: {this.checkPrice(card.prices.usd_foil)}</p>
                       {sessionStorage.getItem("user") !== null ||  this.state.username !== "" ? (
-                        <SaveBtn 
-                        onClick={this.saveCard}
-                        className="submitBtn save-btn btn" 
-                        style={{backgroundColor:"#4e7781", color:"#fff"}}/>
+                        <SaveBtn
+                        onClick={() => this.saveCard(card)}
+                        className="submitBtn save-btn btn"
+                        style={{ backgroundColor: '#4e7781', color: '#fff' }}
+                      />
                       ):(
                         ""
                       )}
