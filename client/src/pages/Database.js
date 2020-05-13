@@ -81,11 +81,21 @@ class Database extends Component {
 
     saveCard = (card) => {
 
-      this.setState({
-        cardName: card.name
-      }, () => {
-        console.log(this.state.cardName) // this prints correct cardName (we used callback)
-      });
+      card.layout === "transform" ? (
+        this.setState({
+          cardName: card.card_faces[0].name
+        }, () => {
+          console.log(this.state.cardName) // this prints correct cardName (we used callback)
+        })
+
+      ):(
+
+        this.setState({
+          cardName: card.name
+        }, () => {
+          console.log(this.state.cardName) // this prints correct cardName (we used callback)
+        })
+      );
     
       // console.log(this.state.cardName) // this will not print the correct card name because setState is async / batch operation
     
