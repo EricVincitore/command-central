@@ -30,6 +30,10 @@ export default {
     return axios.post("/api/saveCard", newCard)
   },
 
+  getCards : function() {
+    return axios.get("/api/cards")
+  },
+
   Login: function(user) {
     return axios.post("/login", user)
   },

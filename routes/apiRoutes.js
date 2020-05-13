@@ -113,9 +113,7 @@ function apiRoutes (app) {
 
     app.post("/api/saveCard", function (req, res) {
         var newCard = new db.Cards ({
-            name: req.body.name,
-            cmc: req.body.cmc,
-            set: req.body.set
+            name: req.body.name
         });
 
         db.Cards.create(newCard, function (err, card) {

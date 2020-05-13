@@ -11,102 +11,110 @@ import SaveBtn from "../components/SaveBtn";
 
 
 class Database extends Component {
-    state = {
-      cards: [],
-      savedCards: [],
-      layout:"",
-      name: "",
-      cardName: "",
-      user:false,
-      username: ""
-    };
+  state = {
+    cards: [],
+    savedCards: [],
+    layout:"",
+    name: "",
+    cardName: "",
+    user:false,
+    username: ""
+  };
 
-    componentDidMount(){
-      console.log(sessionStorage.getItem("user"))
-      if (sessionStorage.getItem("user") !== null) {
-        this.setState({
-          user: !this.state.user,
-          username : sessionStorage.getItem("user")
-        });
-      };
-    };
-
-    toggle = () => {
+  componentDidMount(){
+    console.log(sessionStorage.getItem("user"))
+    if (sessionStorage.getItem("user") !== null) {
+      this.getCards();
       this.setState({
-          isOpen: !this.state.isOpen
+        user: !this.state.user,
+        username : sessionStorage.getItem("user")
       });
     };
+  };
 
-    imageSize = event => {
-      event.preventDefault();
-    };
+  toggle = () => {
+    this.setState({
+        isOpen: !this.state.isOpen
+    });
+  };
+
+  imageSize = event => {
+    event.preventDefault();
+  };
+
+
+  findCard = (query) => {
+    API.search(query)
+    .then(res => {
+      this.setState({ cards: res.data.data })
+    })
+    .catch(err => console.log(err));
+  };
+
+  handleInputChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+  };
   
+  handleFormSubmit = event => {
+    event.preventDefault();
+    if (this.state.name) {
+        this.findCard(this.state.name)
+    }
+  };
 
-    findCard = (query) => {
-      API.search(query)
-      .then(res => {
-          this.setState({ cards: res.data.data })
-      })
-      .catch(err => console.log(err));
+  handleOracleSubmit = event => {
+    event.preventDefault();
+    if (this.state.name) {
+        this.findCard("o:" + this.state.name)
+    }
+  };
+
+  checkPrice = (price) => {
+    if (price === null) {
+      return "Price Unavailable"
+    } else {
+      return price
     };
+  };
 
-    handleInputChange = event => {
-      const { name, value } = event.target;
+  saveCard = (card) => {
+
+    card.layout === "transform" ? (
       this.setState({
-        [name]: value
-      });
-    };
-    
-    handleFormSubmit = event => {
-      event.preventDefault();
-      if (this.state.name) {
-          this.findCard(this.state.name)
-      }
-    };
-
-    handleOracleSubmit = event => {
-      event.preventDefault();
-      if (this.state.name) {
-          this.findCard("o:" + this.state.name)
-      }
-    };
-
-    checkPrice = (price) => {
-      if (price === null) {
-        return "Price Unavailable"
-      } else {
-        return price
-      };
-    };
-
-    saveCard = (card) => {
-
-      card.layout === "transform" ? (
-        this.setState({
-          cardName: card.card_faces[0].name
-        }, () => {
-          console.log(this.state.cardName) // this prints correct cardName (we used callback)
-        })
-
-      ):(
-
-        this.setState({
-          cardName: card.name
-        }, () => {
-          console.log(this.state.cardName) // this prints correct cardName (we used callback)
-        })
-      );
-    
-      // console.log(this.state.cardName) // this will not print the correct card name because setState is async / batch operation
-    
-      API.SaveCard({
-        name: card.name // use card object Or move this code in callback shown above
+        cardName: card.card_faces[0].name
+      }, () => {
+        console.log(this.state.cardName)
       })
-      .then((response) => {
-        console.log("saved following card")
-        console.log(response)
+
+    ):(
+
+      this.setState({
+        cardName: card.name
+      }, () => {
+        console.log(this.state.cardName) 
       })
-    };
+    );
+  
+    API.SaveCard({
+      name: card.name 
+    })
+    .then((response) => {
+      console.log("saved following card")
+      console.log(response)
+    })
+  };
+
+  getCards = () => {
+    API.getCards()
+    .then(res => {
+      this.setState({ savedCards: res.data })
+      console.log(this.state.savedCards)
+    })
+    .catch(err => console.log(err));
+  }
 
   render() {
     return (
@@ -142,7 +150,12 @@ class Database extends Component {
                   <h4 style={{color:"#fff"}}>Click the "Save Card" button to add a card to your wishlist.</h4>
                 ) : (
                   <List>
-
+                    {this.state.saveCards.map(card => {
+                      // <ListItem style={{textAlign:"left"}}>
+                      //   <h4>{card.name}</h4>
+                      // </ListItem>
+                    
+                    })}
                   </List>
                 )
 
