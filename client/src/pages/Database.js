@@ -143,7 +143,7 @@ class Database extends Component {
                   onClick={this.handleOracleSubmit}>Search by Text
               </Button>{' '}
               <br/>
-              {sessionStorage.getItem("user") !== null ||  this.state.username !== "" ? (
+              {/* {sessionStorage.getItem("user") !== null ||  this.state.username !== "" ? (
                 <h1 style={{color:"#fff"}}>{this.state.username}'s Wishlist</h1>
 
                 ,this.state.savedCards.length === 0 ? (
@@ -161,7 +161,7 @@ class Database extends Component {
 
                 ):(
                   <h1 style={{color:"#fff"}}>Log In to use the Wishlist</h1>
-                )}
+                )} */}
                 
             </Col>
           
@@ -198,7 +198,7 @@ class Database extends Component {
                       <p>Commander Legality: {card.legalities.commander}</p>
                       <p>Price in USD: {this.checkPrice(card.prices.usd)}</p>
                       <p>Foil Price in USD: {this.checkPrice(card.prices.usd_foil)}</p>
-                      {sessionStorage.getItem("user") !== null ||  this.state.username !== "" ? (
+                      {/* {sessionStorage.getItem("user") !== null ||  this.state.username !== "" ? (
                         <SaveBtn
                         onClick={() => this.saveCard(card)}
                         className="submitBtn save-btn btn"
@@ -206,7 +206,7 @@ class Database extends Component {
                       />
                       ):(
                         ""
-                      )}
+                      )} */}
                       </ListItem>
                     )
                   })
