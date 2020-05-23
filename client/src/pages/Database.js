@@ -221,7 +221,6 @@ class Database extends Component {
           </Row>
         </Container>
         <br/>
-        <br/>
       <Footer/>
       </div>
     );
