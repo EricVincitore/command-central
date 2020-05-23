@@ -75,25 +75,12 @@ class SignIn extends Component {
                               <Label for="examplePassword" style={{color:"#2b3d52"}}>Password</Label>
                               <Input type="password" onChange={this.handleInputChange} value={this.state.password} name="password" id="SignUpPassword" placeholder="Your Password" />
                           </FormGroup>
+                          <Button onClick={this.handleFormSubmit} style={{backgroundColor:"#4e7781", color:"#fff"}} className="submitBtn">Log In</Button>
+                          <br/>
+                          <br/>
+                          <Link to="/signup"><Button style={{backgroundColor:"#5fb9ce", color:"#fff"}} className="submitBtn">Sign Up with Command Central</Button></Link>
                           </Form>                    
                       </CardBody>
-                      <Row>
-                          <Col md="1"/>
-                          <Col md="2" sm="12">
-                            <Button onClick={this.handleFormSubmit} style={{backgroundColor:"#4e7781", color:"#fff"}} className="submitBtn">Log In</Button>
-                          </Col>
-                          <Col md="4"/>
-                          <Col md="4" sm="12">
-                          </Col>
-                      </Row>
-                      <br/>
-                      <Row>
-                          <Col md="1"/>
-                          <Col md="8" sm="12">
-                          <Link to="/signup"><Button style={{backgroundColor:"#5fb9ce", color:"#fff"}} className="submitBtn">Sign Up with Command Central</Button></Link>
-                          </Col>
-                      </Row>
-                      <br/> 
                   </Card>
                   <br/>
               </Col>

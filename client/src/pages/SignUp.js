@@ -101,22 +101,12 @@ class SignUp extends Component {
                               <Label for="examplePassword" style={{color:"#2b3d52"}}>Password</Label>
                               <Input type="password" onChange={this.handleInputChange} value={this.state.password} name="password" id="SignUpPassword" placeholder="A Password you will Remember" />
                           </FormGroup>
+                          <Button onClick={this.handleFormSubmit} style={{backgroundColor:"#5fb9ce", color:"#fff"}} className="submitBtn">Sign Up</Button>
+                          <br/>
+                          <br/>
+                          <Link to="/signin"><Button style={{backgroundColor:"#4e7781", color:"#fff"}} className="submitBtn">Return to Login</Button></Link>
                           </Form>                    
                       </CardBody>
-                      <Row>
-                          <Col md="1" sm="1"/>
-                          <Col md="8" sm="11">
-                          <Button onClick={this.handleFormSubmit} style={{backgroundColor:"#5fb9ce", color:"#fff"}} className="submitBtn">Sign Up</Button>
-                          </Col>
-                      </Row>
-                      <br/>
-                      <Row>
-                          <Col md="1" sm="1"/>
-                          <Col md="8" sm="11">
-                          <Link to="/signin"><Button style={{backgroundColor:"#4e7781", color:"#fff"}} className="submitBtn">Return to Login</Button></Link>
-                          </Col>
-                      </Row>
-                      <br/> 
                   </Card>
                   <br/>
               </Col>
