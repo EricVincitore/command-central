@@ -165,6 +165,8 @@ class Homepage extends Component {
             </Col>
           </Row>
         </Container>
+        <br/>
+        <br/>
         <Footer/>
       </div>
     );

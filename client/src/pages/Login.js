@@ -100,6 +100,8 @@ class SignIn extends Component {
               <Col md="2"/>
           </Row>
         </Container>
+        <br/>
+        <br/>
         <Footer/>
       </div>
     );

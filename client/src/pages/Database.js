@@ -219,8 +219,9 @@ class Database extends Component {
               <br/>
             </Col>
           </Row>
-          <br/>
         </Container>
+        <br/>
+        <br/>
       <Footer/>
       </div>
     );
