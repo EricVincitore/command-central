@@ -214,7 +214,9 @@ class Database extends Component {
                 </List>
               ) : (
                 <h3 style={{textAlign:"center", color:"#fff"}}>No Results to Display</h3>
+                
               )}
+              <br/>
             </Col>
           </Row>
           <br/>
