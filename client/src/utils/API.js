@@ -23,7 +23,9 @@ export default {
   },
 
   signUp: function(newUser) {
-    return axios.post("/register", newUser);
+    return axios.post("/register", newUser).catch(error => {
+      console.log(error)
+    });
   },
 
   SaveCard: function(newCard) {
