@@ -90,7 +90,7 @@ class Homepage extends Component {
                         
                         <ListItem key = {article.title}>
                           <a href={article.link} target="_blank" rel="noopener noreferrer">
-                          <img className="articleImg" src = {article.img} alt={article.title}/>
+                          <img className="articleImg edhrecImg" src = {article.img} alt={article.title}/>
                           <h4 style={{color:"#5fb9ce"}}>{article.title}</h4>
                           </a>
                           <p style={{color:"#2b3d52"}}>{article.description}</p>

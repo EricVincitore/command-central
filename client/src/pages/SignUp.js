@@ -63,6 +63,9 @@ class SignUp extends Component {
         window.sessionStorage.setItem("user", JSON.parse(user).name)
         window.location.href = "/"
       })
+      .catch(function(err) {
+        console.log(err);
+      })
     }
   }
  
@@ -95,7 +98,7 @@ class SignUp extends Component {
                           </FormGroup>
                           <FormGroup>
                               <Label for="exampleEmail" style={{color:"#2b3d52"}}>Email</Label>
-                              <Input type="email" onChange={this.handleInputChange} value={this.state.email} name="email" id="signUpEmail" placeholder="YourEmail@example.com" />
+                              <Input type="text" onChange={this.handleInputChange} value={this.state.email} name="email" id="signUpEmail" placeholder="YourEmail@example.com" />
                           </FormGroup>
                           <FormGroup>
                               <Label for="examplePassword" style={{color:"#2b3d52"}}>Password</Label>
