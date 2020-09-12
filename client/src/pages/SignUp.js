@@ -103,7 +103,13 @@ class SignUp extends Component {
                               <Label for="examplePassword"  className="loginLabel">Password</Label>
                               <Input type="password" onChange={this.handleInputChange} value={this.state.password} name="password" id="SignUpPassword" placeholder="A Password you will Remember" />
                           </FormGroup>
-                          <Button onClick={this.handleFormSubmit} color="secondary" className="submitBtn">Sign Up</Button>
+                          <Button 
+                            onClick={this.handleFormSubmit} 
+                            color="secondary" 
+                            className="submitBtn"
+                            disabled={!(this.state.name) ||!(this.state.email) || !(this.state.username) || !(this.state.password)}>
+                              Sign Up
+                          </Button>
                           <br/>
                           <br/>
                           <Link to="/signin"><Button color="info" className="submitBtn">Return to Login</Button></Link>
