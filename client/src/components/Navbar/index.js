@@ -8,20 +8,9 @@ import {
   Nav,
   NavItem,
   NavLink,
-  NavbarText
+  NavbarText,
 } from 'reactstrap';
 
-
-const navSettings = {
-  position: "fixed",
-  Top: "0",
-  right: "0",
-  left: "0",
-  width: "100%",
-  backgroundColor: "#fff",
-  zIndex: 1
-
-}
 
 class Top extends Component {
   state = {
@@ -75,45 +64,42 @@ class Top extends Component {
     console.log(sessionStorage.getItem("user"))
     return(
     
-      <Navbar className ="nav-bar" style={navSettings} light expand="md">
-        <NavbarBrand href="/" className="navBrand" style={{color:"#2b3d52"}}>Command Central</NavbarBrand>
+      <Navbar className ="nav-bar fixed-top navbarCSS" light expand="md">
+        <NavbarBrand href="/" className="navBrand navbarText" >Command Central</NavbarBrand>
         <NavbarToggler onClick={this.toggle} />
         <Collapse isOpen={this.state.isOpen} navbar>
           <Nav className="mr-auto" navbar>
           <NavItem>
-            <NavLink href="/" className="link" style={{color:"#2b3d52"}}>Homepage</NavLink>
+            <NavLink href="/" className="link navbarText" >Homepage</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="/metagame" className="link" style={{color:"#2b3d52"}}>Metagame</NavLink>
+            <NavLink href="/metagame" className="link navbarText" >Metagame</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="/cardDatabase" className="link" style={{color:"#2b3d52"}}>Card Database</NavLink>
+            <NavLink href="/cardDatabase" className="link navbarText" >Card Database</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="/Resources" className="link" style={{color:"#2b3d52"}}>Resources</NavLink>
+            <NavLink href="/Resources" className="link navbarText" >Resources</NavLink>
           </NavItem>
           <NavItem>
             <NavLink  
               href={(this.state.user) ? "/": "/signin"} 
               onClick = {(this.state.user) ? this.handleLogout : this.handleLogin } 
-              className="link"
+              className="link navbarText"
               id="loginBtn" 
-              style={{color:"#2b3d52"}}>
+              >
                 {(window.location.pathname === "/signin") ? "" : "Login" }
               </NavLink>
           </NavItem>
           </Nav>
-          <NavbarText style={{color:"#2b3d52"}}>
+          <NavbarText className="navbarText">
             {sessionStorage.getItem("user") !== null ? "Hello " + this.state.name : ""}
           </NavbarText>
         </Collapse>
       </Navbar>
     );
-  };
-
-  
-  
-}
+  }; 
+};
 
 
 

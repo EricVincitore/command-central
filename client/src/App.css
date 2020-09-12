@@ -61,6 +61,8 @@ iframe {
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
+  text-align: center;
+  color: #2b3d52;
 }
 
 .edhrecImg {
@@ -151,4 +153,36 @@ iframe {
 .resourceList{
   color: #fff;
   list-style: none;
+}
+
+.navbarText {
+  color: #2b3d52;
+}
+
+.navbarCSS {
+  width: 100%;
+  z-index: 1;
+  background-color: #fff;
+}
+
+.footerStyle {
+  
+  background-color: #4e7781;
+  height: 2%;
+  
+}
+
+.save-btn {
+  float: right;
+  margin-right: 0;
+}
+
+.formButtonStyle {
+  float: right;
+  margin-bottom: 10;
+}
+
+.footerText {
+  color: #fff;
+  font-size: 50%;
 }
