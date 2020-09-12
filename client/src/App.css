@@ -92,3 +92,26 @@ iframe {
   height: 40%;
   width: 40%
 }
+
+.databaseH1 {
+  text-align: center;
+  color: #fff;
+}
+
+.databaseCol {
+  text-align: center;
+}
+
+.databaseResultH1 {
+  text-align: center;
+  color: #fff;
+}
+
+.databaseListItem {
+  text-align: left;
+}
+
+.databaseH3 {
+  text-align: center;
+  color: #fff;
+}

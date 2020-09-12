@@ -126,19 +126,19 @@ class Database extends Component {
             </Col>
           </Row>
           <Row>
-            <Col sm="12" md="5" style={{textAlign:"center"}}>
-            <h1 style={{textAlign:"center", color:"#fff"}}>Card Search</h1>
+            <Col sm="12" md="5"  className="databaseCol">
+            <h1 className="databaseH1">Card Search</h1>
               <Input
                   value={this.state.name}
                   onChange={this.handleInputChange}
                   name="name"
                   placeholder="Search Term (Required)"
               />
-              <Button className="submitBtn" style={{backgroundColor:"#5fb9ce", color:"#fff"}}
+              <Button className="submitBtn" color="info"
                   disabled={!(this.state.name)}
                   onClick={this.handleFormSubmit}>Search by Name
               </Button>{' '}
-              <Button className="submitBtn" style={{backgroundColor:"#4e7781", color:"#fff"}}
+              <Button className="submitBtn" color="secondary"
                   disabled={!(this.state.name)}
                   onClick={this.handleOracleSubmit}>Search by Text
               </Button>{' '}
@@ -166,13 +166,13 @@ class Database extends Component {
             </Col>
           
             <Col sm="12" md="7">
-              <h1 style={{textAlign:"center", color:"#fff"}}>Results</h1>
+              <h1 className="databaseResultH1">Results</h1>
               {this.state.cards.length ? (
                 <List>
                   {console.log(this.state.cards)}
                   {this.state.cards.map(card => {
                     return (  
-                      <ListItem style={{textAlign:"left"}} key={card.name}>
+                      <ListItem className="databaseListItem" key={card.name}>
                       {card.layout === "transform" ? (
                         <div>
                           <img className="cardImg" src={card.card_faces[1].image_uris.small} alt={card.card_faces[1].name}/>
@@ -213,7 +213,7 @@ class Database extends Component {
                 }
                 </List>
               ) : (
-                <h3 style={{textAlign:"center", color:"#fff"}}>No Results to Display</h3>
+                <h3 className="databaseH3">No Results to Display</h3>
                 
               )}
               <br/>
