@@ -63,22 +63,27 @@ class SignIn extends Component {
               <Col md="8" sm="12">
                   <Card>
                       <CardBody>
-                      <CardTitle><h4 style={{color:"#2b3d52"}}>Command Central Login</h4></CardTitle>
+                      <CardTitle><h4 className="loginLabel">Command Central Login</h4></CardTitle>
                       </CardBody>
                       <CardBody>
                       <Form>
                           <FormGroup>
-                              <Label for="exampleEmail" style={{color:"#2b3d52"}}>Username</Label>
+                              <Label for="exampleEmail" className="loginLabel">Username</Label>
                               <Input type="text" onChange={this.handleInputChange} value={this.state.username} name="username" id="signUpUsername" placeholder="Your Username" />
                           </FormGroup>
                           <FormGroup>
-                              <Label for="examplePassword" style={{color:"#2b3d52"}}>Password</Label>
+                              <Label for="examplePassword" className="loginLabel">Password</Label>
                               <Input type="password" onChange={this.handleInputChange} value={this.state.password} name="password" id="SignUpPassword" placeholder="Your Password" />
                           </FormGroup>
-                          <Button onClick={this.handleFormSubmit} style={{backgroundColor:"#4e7781", color:"#fff"}} className="submitBtn">Log In</Button>
+                          <Button 
+                            onClick={this.handleFormSubmit} 
+                            color="info"
+                            disabled={!(this.state.username) || !(this.state.password)}>
+                              Log In
+                          </Button>
                           <br/>
                           <br/>
-                          <Link to="/signup"><Button style={{backgroundColor:"#5fb9ce", color:"#fff"}} className="submitBtn">Sign Up with Command Central</Button></Link>
+                          <Link to="/signup"><Button color="secondary" className="submitBtn">Sign Up with Command Central</Button></Link>
                           </Form>                    
                       </CardBody>
                   </Card>

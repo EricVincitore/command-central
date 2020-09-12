@@ -14,18 +14,18 @@ import {
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 
-const bodyStyle = {
-  display: "flex",
-  flexDirection: "column",
-  backgroundColor: "#2b3d52",
-  height: "100%",
-  backgroundAttachment: "fixed",
-  backgroundPosition: "center",
-  backgroundSize: "cover",
-  top: 0,
-  bottom: 0,
-  bottomMargin:0
-}
+// const bodyStyle = {
+//   display: "flex",
+//   flexDirection: "column",
+//   backgroundColor: "#2b3d52",
+//   height: "100%",
+//   backgroundAttachment: "fixed",
+//   backgroundPosition: "center",
+//   backgroundSize: "cover",
+//   top: 0,
+//   bottom: 0,
+//   bottomMargin:0
+// }
 
 
 class SignUp extends Component {
@@ -71,7 +71,7 @@ class SignUp extends Component {
 
   render() {
     return (
-      <div className="page" style={bodyStyle}>
+      <div className="page">
         <Container fluid>
           <Row>
             <Col md="12" sm="12">
@@ -88,25 +88,25 @@ class SignUp extends Component {
                       <CardBody>
                       <Form>
                       <FormGroup>
-                              <Label for="exampleName" style={{color:"#2b3d52"}}>Name</Label>
+                              <Label for="exampleName" className="loginLabel">Name</Label>
                               <Input type="text" onChange={this.handleInputChange} value={this.state.name} name="name" id="signUpName" placeholder="John Smith" />
                           </FormGroup>
                           <FormGroup>
-                              <Label for="exampleUsername" style={{color:"#2b3d52"}}>Username</Label>
+                              <Label for="exampleUsername" className="loginLabel">Username</Label>
                               <Input type="text" onChange={this.handleInputChange} value={this.state.username} name="username" id="signUpUsername" placeholder="Your Username" />
                           </FormGroup>
                           <FormGroup>
-                              <Label for="exampleEmail" style={{color:"#2b3d52"}}>Email</Label>
+                              <Label for="exampleEmail" className="loginLabel">Email</Label>
                               <Input type="text" onChange={this.handleInputChange} value={this.state.email} name="email" id="signUpEmail" placeholder="YourEmail@example.com" />
                           </FormGroup>
                           <FormGroup>
-                              <Label for="examplePassword" style={{color:"#2b3d52"}}>Password</Label>
+                              <Label for="examplePassword"  className="loginLabel">Password</Label>
                               <Input type="password" onChange={this.handleInputChange} value={this.state.password} name="password" id="SignUpPassword" placeholder="A Password you will Remember" />
                           </FormGroup>
-                          <Button onClick={this.handleFormSubmit} style={{backgroundColor:"#5fb9ce", color:"#fff"}} className="submitBtn">Sign Up</Button>
+                          <Button onClick={this.handleFormSubmit} color="secondary" className="submitBtn">Sign Up</Button>
                           <br/>
                           <br/>
-                          <Link to="/signin"><Button style={{backgroundColor:"#4e7781", color:"#fff"}} className="submitBtn">Return to Login</Button></Link>
+                          <Link to="/signin"><Button color="info" className="submitBtn">Return to Login</Button></Link>
                           </Form>                    
                       </CardBody>
                   </Card>
