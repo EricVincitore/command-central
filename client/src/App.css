@@ -119,3 +119,36 @@ iframe {
 .loginLabel {
   color:#2b3d52
 }
+
+.metagamePage {
+  text-align: center;
+}
+
+.metagameP {
+  color: #2b3d52;
+}
+
+.metagameH {
+  color: #fff;
+}
+
+.resourcePage {
+  text-align: center;
+}
+
+.resourceText {
+  color: #fff;
+}
+
+.resourceLink {
+  color: #5fb9ce;
+}
+
+.resourceLink:hover {
+  color: #2b3d52;
+}
+
+.resourceList{
+  color: #fff;
+  list-style: none;
+}

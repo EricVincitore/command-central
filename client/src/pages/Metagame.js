@@ -6,7 +6,7 @@ import API from "../utils/API";
 import { List, ListItem } from "../components/List";
 import Footer from "../components/Footer";
 
-class Homepage extends Component {
+class Metagame extends Component {
  
   state = {
     metagame: [],
@@ -30,7 +30,7 @@ class Homepage extends Component {
 
   render() {
     return (
-      <div className="page" style={{ textAlign:"center"}}>
+      <div className="page metagamePage">
         <Container fluid>
           <Row>
             <Col md="12" sm="12">
@@ -40,7 +40,7 @@ class Homepage extends Component {
           <Row>
             <Col md="4" sm="2"/>
             <Col md="4" sm="8">
-              <Button onClick={this.handleSearch} className="submitBtn" style={{backgroundColor:"#5fb9ce", color:"#fff"}}>
+              <Button onClick={this.handleSearch} className="submitBtn" color="info">
                 Click here to see the current metagame for the commander format!
               </Button>{' '}
             </Col>
@@ -48,7 +48,7 @@ class Homepage extends Component {
           </Row>
           <Row>
             <Col md="6" sm="12">
-              <h3 style={{color:"#fff"}}>Metagame:</h3>
+              <h3 className="metagameH">Metagame:</h3>
               <br/>
               {this.state.metagame.length ? (
                 
@@ -60,9 +60,9 @@ class Homepage extends Component {
                       <ListItem key = {deck.title}>
                       <img className="DeckImg" src = {deck.img} alt={deck.title}/>
                       <a href={deck.link} target="_blank" rel="noopener noreferrer"><h4 style={{color:"#5fb9ce"}}>{deck.title}</h4></a>
-                      <p style={{color:"#2b3d52"}}>Metagame Percent: {deck.meta}</p>
-                      <p style={{color:"#2b3d52"}}>Common cards: {deck.list}</p>
-                      <p style={{color:"#2b3d52"}}>Example Price: {deck.price}</p>
+                      <p className="metagameP">Metagame Percent: {deck.meta}</p>
+                      <p className="metagameP">Common cards: {deck.list}</p>
+                      <p className="metagameP">Example Price: {deck.price}</p>
                       
                       </ListItem>
                     )
@@ -72,12 +72,12 @@ class Homepage extends Component {
                 }
                 </List>
               ) : (
-                <h4 style={{color:"#fff"}}>Click the button above to see the metagame</h4>
+                <h4 className="metagameH">Click the button above to see the metagame</h4>
               )}
 
             </Col>
             <Col md="6" sm="12">
-              <h3 style={{color:"#fff"}}>Budget Metagame:</h3>
+              <h3 className="metagameH">Budget Metagame:</h3>
               <br/>
               {this.state.metagame.length ? (
                 
@@ -89,8 +89,8 @@ class Homepage extends Component {
                       <ListItem key = {deck.title}>
                         <img className="DeckImg" src = {deck.img} alt={deck.title}/>
                         <a href={deck.link} target="_blank" rel="noopener noreferrer"><h4 style={{color:"#5fb9ce"}}>{deck.title}</h4></a>
-                        <p style={{color:"#2b3d52"}}>Common cards: {deck.list}</p>
-                        <p style={{color:"#2b3d52"}}>Example Price: {deck.price}</p>
+                        <p className="metagameP">Common cards: {deck.list}</p>
+                        <p className="metagameP">Example Price: {deck.price}</p>
                       
                       </ListItem>
                     )
@@ -100,7 +100,7 @@ class Homepage extends Component {
                 }
                 </List>
               ) : (
-                <h4 style={{color:"#fff"}}>Click the button above to see the metagame</h4>
+                <h4 className="metagameH">Click the button above to see the metagame</h4>
               )}
 
 
@@ -115,4 +115,4 @@ class Homepage extends Component {
   }
 }
 
-export default Homepage;
+export default Metagame;

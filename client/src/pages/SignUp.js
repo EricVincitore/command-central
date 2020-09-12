@@ -14,20 +14,6 @@ import {
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 
-// const bodyStyle = {
-//   display: "flex",
-//   flexDirection: "column",
-//   backgroundColor: "#2b3d52",
-//   height: "100%",
-//   backgroundAttachment: "fixed",
-//   backgroundPosition: "center",
-//   backgroundSize: "cover",
-//   top: 0,
-//   bottom: 0,
-//   bottomMargin:0
-// }
-
-
 class SignUp extends Component {
 
   state = {
