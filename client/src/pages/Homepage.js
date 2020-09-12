@@ -58,7 +58,7 @@ class Homepage extends Component {
 
   render() {
     return (
-      <div className="page" style={{textAlign:"center"}}>
+      <div className="page homepagePage">
         <Container fluid>
           <Row>
             <Col md="12" sm="12">
@@ -68,7 +68,7 @@ class Homepage extends Component {
           <Row>
             <Col md="4" sm="2"/>
             <Col md="4" sm="8">
-              <Button className="submitBtn" style={{backgroundColor:"#5fb9ce", color:"#fff"}}
+              <Button className="submitBtn" color="info"
               onClick={this.handleSearch}>
                 Click here to stay up to date with the commander format!
               </Button>{' '}
@@ -78,7 +78,7 @@ class Homepage extends Component {
           <br/>
           <Row>
             <Col md="4" sm="12">
-              <h3 style={{color:"#fff"}}>EdhRec:</h3>
+              <h3 className="articleHeader">EdhRec:</h3>
               <br/>
               <div>
               {this.state.EdhRecArticles.length ? (
@@ -91,9 +91,9 @@ class Homepage extends Component {
                         <ListItem key = {article.title}>
                           <a href={article.link} target="_blank" rel="noopener noreferrer">
                           <img className="articleImg edhrecImg" src = {article.img} alt={article.title}/>
-                          <h4 style={{color:"#5fb9ce"}}>{article.title}</h4>
+                          <h4 className="articleH4">{article.title}</h4>
                           </a>
-                          <p style={{color:"#2b3d52"}}>{article.description}</p>
+                          <p className="articleP">{article.description}</p>
                         
                         </ListItem>
                       )
@@ -103,12 +103,12 @@ class Homepage extends Component {
                   }
                 </List>
                 ) : (
-                  <h4 style={{color:"#fff"}}>Click the button above to see the latest content.</h4>
+                  <h4 className="articleFiller">Click the button above to see the latest content.</h4>
                 )}
               </div>
             </Col>
             <Col md="4" sm="12">
-              <h3 style={{color:"#fff"}}>The Command Zone:</h3>
+              <h3 className="articleHeader">The Command Zone:</h3>
               <br/>
               <div>
                 {this.state.CZArticles.length ? (
@@ -119,10 +119,10 @@ class Homepage extends Component {
                         
                         <ListItem key = {article.title}>
                           <a href={article.link} target="_blank" rel="noopener noreferrer">
-                          <img className="articleImg" src = {article.img} alt={article.title}/>
-                          <h4 style={{color:"#5fb9ce"}}>{article.title}</h4>
+                          <img className="articleImg CZImage" src = {article.img} alt={article.title}/>
+                          <h4 className="articleH4">{article.title}</h4>
                           </a>
-                          <p style={{color:"#2b3d52"}}>{article.description}</p>
+                          <p className="articleP">{article.description}</p>
                           
                         </ListItem>
                       )
@@ -131,12 +131,12 @@ class Homepage extends Component {
                   }
                   </List>
                   ) : (
-                    <h4 style={{color:"#fff"}}>Click the button above to see the latest content.</h4>
+                    <h4 className="articleFiller">Click the button above to see the latest content.</h4>
                   )}
               </div>
             </Col>
             <Col md="4" sm="12">
-            <h3 style={{color:"#fff"}}>Commander Clash:</h3>
+            <h3 className="articleHeader" >Commander Clash:</h3>
             <br/>
             <div>
               {this.state.CCArticles.length ? (
@@ -148,9 +148,9 @@ class Homepage extends Component {
                         <ListItem key = {article.title}>
                           <a href={article.link} target="_blank" rel="noopener noreferrer">
                           <img className="articleImg" src = {article.img} alt={article.title}/>
-                          <h4 style={{color:"#5fb9ce"}}>{article.title}</h4>
+                          <h4 className="articleH4">{article.title}</h4>
                           </a>
-                          <p style={{color:"#2b3d52"}}>{article.description}</p>
+                          <p className="articleP">{article.description}</p>
                           
                         </ListItem>
                       )
@@ -159,7 +159,7 @@ class Homepage extends Component {
                   }
                 </List>
                 ) : (
-                  <h4 style={{color:"#fff"}}>Click the button above to see the latest content.</h4>
+                  <h4 className="articleFiller">Click the button above to see the latest content.</h4>
                 )}
             </div>
             </Col>

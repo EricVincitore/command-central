@@ -1,5 +1,3 @@
-
-
 .container {
   text-align: center;
   height: 100%;
@@ -16,6 +14,11 @@ body {
   background-size: cover;
   top: 0;
   bottom: 0;
+}
+
+#articleSearchButton {
+  background-Color:"#5fb9ce";
+  color:"#fff";
 }
 
 .cardImg {
@@ -58,4 +61,34 @@ iframe {
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
+}
+
+.edhrecImg {
+  height: 40%;
+  width: 40%
+}
+
+.artcleH4 {
+  color:"#5fb9ce"
+}
+
+.articleP {
+  color:"#2b3d52"
+}
+
+.articleFiller {
+  color:"#fff"
+}
+
+.articleHeader {
+  color: #fff;
+}
+
+.homepagePage {
+  text-align: center;
+}
+
+.CZImage {
+  height: 40%;
+  width: 40%
 }

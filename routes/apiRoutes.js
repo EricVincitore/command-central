@@ -51,7 +51,7 @@ function apiRoutes (app) {
                 let result = {};
 
                 result.title = $(element).children(".blog-post-title").children().text();
-                result.img = $(element).children(".preview").children(".card").children(".attachment-thumbnail").attr("src")
+                result.img = $(element).children(".preview").children(".card").children(".attachment-thumbnail").attr("data-src")
                 result.description = $(element).children(".preview").children(".post").children().children().text();
                 result.link = $(element).children(".blog-post-title").children().attr("href");
                 articles.push(result)
