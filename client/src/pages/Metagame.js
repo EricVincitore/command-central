@@ -40,7 +40,7 @@ class Metagame extends Component {
           <Row>
             <Col md="4" sm="2"/>
             <Col md="4" sm="8">
-              <Button onClick={this.handleSearch} className="submitBtn" color="info">
+              <Button onClick={this.handleSearch} color="info">
                 Click here to see the current metagame for the commander format!
               </Button>{' '}
             </Col>
