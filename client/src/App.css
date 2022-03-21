@@ -182,6 +182,11 @@ iframe {
   margin-bottom: 10;
 }
 
+.DeckImg {
+  max-width: 40%;
+  height: auto;
+}
+
 .footerText {
   color: #fff;
   font-size: 50%;
