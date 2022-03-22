@@ -27,15 +27,16 @@ function apiRoutes (app) {
                 let result = {};
                 
                 result.img = $(element).children(".archetype-tile-image").children(".card-tile").children(".card-image-tile").attr("style").replace("background-image: url('", "").replace("');", "")
-                result.title = $(element).children(".archetype-tile-description-wrapper").children(".archetype-tile-description").children(".title").children(".deck-price-paper").text();
+                result.title = $(element).children(".archetype-tile-description-wrapper").children(".archetype-tile-description").children(".archetype-tile-title").children("deck-price-paper").children().text()
                 result.meta = $(element).children(".archetype-tile-statistics").children(".table").children("tbody").children().children(".percentage").text();
                 result.list = $(element).children(".archetype-tile-description-wrapper").children(".archetype-tile-description").children("ul").text();
-                result.price = $(element).children(".archetype-tile-statistics").children(".table").children("tbody").children().children(".text-right").children(".deck-price-paper").text();
-                result.link = "https://www.mtggoldfish.com" + $(element).children(".archetype-tile-description-wrapper").children(".archetype-tile-description").children(".title").children(".deck-price-paper").children().attr("href");
+                result.price = $(element).children(".archetype-tile-description-wrapper").children(".archetype-tile-statistics").children(".archetype-tile-statistics-right").children(".deck-price-paper").children(".archetype-tile-statistic-value").text();
+                result.link = "https://www.mtggoldfish.com" + $(element).children(".archetype-tile-image").children(".card-tile").children("card-image-tile-link-overlay").children().attr("href")
                 decks.push(result)
 
             });
             res.send(decks);
+            console.log(decks)
         });
     });
 
