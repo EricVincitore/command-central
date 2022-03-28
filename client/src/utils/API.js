@@ -3,25 +3,47 @@ import axios from "axios";
 export default {
 
   search: function(query) {
-    return axios.get("/api/scryfall/" + query);
+    try {
+      return axios.get("/api/scryfall/" + query);
+    } catch (error) {
+      console.error(error)
+    }
   },
 
   metagame: function() {
-    return axios.get("/metagamescrape");
+    try {
+      return axios.get("/metagamescrape");
+    } catch (error) {
+      console.error(error)
+    }
   },
 
   edhRec: function() {
-    return axios.get("/edhrecscrape");
+    try {
+      return axios.get("/edhrecscrape");
+    } catch (error) {
+      console.error(error)
+    }
   },
 
   commandZone: function() {
-    return axios.get("/czscrape");
+    try {
+      return axios.get("/czscrape");
+    } catch (error) {
+      console.error(error)
+    }
   },
 
   cc: function() {
-    return axios.get("/ccscrape");
+    try {
+      return axios.get("/ccscrape");
+    } catch (error) {
+      console.error(error)
+    }
   },
 
+  //TODO: add try catch to functions below 
+  
   signUp: function(newUser) {
     return axios.post("/register", newUser).catch(error => {
       console.log(error)

@@ -51,7 +51,7 @@ class Homepage extends Component {
     event.preventDefault();
     this.edhRec();
     this.commandZone();
-    this.cc();
+    // this.cc();
     
   };
 
