@@ -27,11 +27,11 @@ function apiRoutes (app) {
                 let result = {};
                 
                 result.img = $(element).children(".archetype-tile-image").children(".card-tile").children(".card-image-tile").attr("style").replace("background-image: url('", "").replace("');", "")
-                result.title = $(element).children(".archetype-tile-description-wrapper").children(".archetype-tile-description").children(".archetype-tile-title").children("deck-price-paper").children().text()
-                result.meta = $(element).children(".archetype-tile-statistics").children(".table").children("tbody").children().children(".percentage").text();
+                result.title = $(element).children(".archetype-tile-description-wrapper").children(".archetype-tile-description").children(".archetype-tile-title").children(".deck-price-paper").children().text()
+                result.meta = $(element).children(".archetype-tile-description-wrapper").children(".archetype-tile-statistics").children(".archetype-tile-statistics-left").children(".archetype-tile-statistic").children(".archetype-tile-statistic-value").text();
                 result.list = $(element).children(".archetype-tile-description-wrapper").children(".archetype-tile-description").children("ul").text();
                 result.price = $(element).children(".archetype-tile-description-wrapper").children(".archetype-tile-statistics").children(".archetype-tile-statistics-right").children(".deck-price-paper").children(".archetype-tile-statistic-value").text();
-                result.link = "https://www.mtggoldfish.com" + $(element).children(".archetype-tile-image").children(".card-tile").children("card-image-tile-link-overlay").children().attr("href")
+                result.link = "https://www.mtggoldfish.com" + $(element).children(".archetype-tile-description-wrapper").children(".archetype-tile-description").children(".archetype-tile-title").children(".deck-price-paper").children().attr("href")
                 decks.push(result)
 
             });
@@ -85,6 +85,8 @@ function apiRoutes (app) {
     app.get("/ccscrape", function (req, res) {
         axios.get("https://www.mtggoldfish.com/series/commander-clash").then(function (response) {
 
+            console.log("in ccScape function")
+
             let $ = cheerio.load(response.data);
 
             articles = [];
@@ -99,7 +101,9 @@ function apiRoutes (app) {
                 result.link = "https://www.mtggoldfish.com" + $(element).children(".article-tile-contents").children(".article-tile-title").children(".stealth-link").attr("href");
                 articles.push(result)
             });
-            console.log(articles)
+            console.log("Commander clash array start");
+            console.log(articles);
+            console.log("Commander clash array end");
             res.send(articles);
         });
     });

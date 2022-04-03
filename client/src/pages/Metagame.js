@@ -83,7 +83,7 @@ class Metagame extends Component {
                 
                 <List>
                   
-                  {this.state.metagame.slice(13,20).map(deck => {
+                  {this.state.metagame.slice(15,20).map(deck => {
                     return ( 
                       
                       <ListItem key = {deck.title}>
