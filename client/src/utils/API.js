@@ -41,33 +41,56 @@ export default {
       console.error(error)
     }
   },
-
-  //TODO: add try catch to functions below 
   
   signUp: function(newUser) {
-    return axios.post("/register", newUser).catch(error => {
+    try {
+      return axios.post("/register", newUser).catch(error => {
+        console.log(error)
+      });
+    } catch (error) {
       console.log(error)
-    });
+    }
   },
 
   SaveCard: function(newCard) {
-    return axios.post("/api/saveCard", newCard)
+    try {
+      return axios.post("/api/saveCard", newCard)
+    } catch (error) {
+      console.error(error)
+    }
   },
 
   getCards : function() {
-    return axios.get("/api/cards")
+    try {
+      return axios.get("/api/cards")
+    } catch (error) {
+      console.error(error)
+    }
+
   },
 
   Login: function(user) {
-    return axios.post("/login", user)
+    try {
+      return axios.post("/login", user)
+    } catch (error) {
+      console.error(error)
+    }
   },
 
   User: function() {
-    return axios.get("/user")
+    try {
+      return axios.get("/user")
+    } catch (error) {
+      console.error(error)
+    }
   },
 
   logout: function() {
-    return axios.get("/logout")
+    try {
+      return axios.get("/logout")
+    } catch (error) {
+      console.error(error)
+    }
   }
   
 };
