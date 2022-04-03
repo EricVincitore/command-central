@@ -173,7 +173,7 @@ class Database extends Component {
                   {this.state.cards.map(card => {
                     return (  
                       <ListItem className="databaseListItem" key={card.name}>
-                      {card.layout != "normal" ? (
+                      {card.layout !== "normal" ? (
                         <div>
                           <img className="cardImg" src={card.card_faces[1].image_uris.small} alt={card.card_faces[1].name}/>
                           <img className="cardImg" src={card.card_faces[0].image_uris.small} alt={card.card_faces[0].name}/>
@@ -187,7 +187,7 @@ class Database extends Component {
                       <h6>{card.type_line}</h6>
                       <h6>{card.set_name}</h6>
                       <h6>{card.rarity}</h6>
-                      {card.layout === "transform" ? (
+                      {card.layout !== "normal" ? (
                         <div>
                           <p>{card.card_faces[0].name}: {card.card_faces[0].oracle_text}</p>
                           <p>{card.card_faces[1].name}: {card.card_faces[1].oracle_text}</p>
