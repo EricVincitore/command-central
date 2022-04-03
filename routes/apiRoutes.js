@@ -85,12 +85,9 @@ function apiRoutes (app) {
     app.get("/ccscrape", function (req, res) {
         axios.get("https://www.mtggoldfish.com/series/commander-clash").then(function (response) {
 
-            console.log("in ccScape function")
-
             let $ = cheerio.load(response.data);
 
             articles = [];
-            
 
             $(".article-tile").each(function (i, element) {
 
@@ -101,9 +98,6 @@ function apiRoutes (app) {
                 result.link = "https://www.mtggoldfish.com" + $(element).children(".article-tile-contents").children(".article-tile-title").children(".stealth-link").attr("href");
                 articles.push(result)
             });
-            console.log("Commander clash array start");
-            console.log(articles);
-            console.log("Commander clash array end");
             res.send(articles);
         });
     });
