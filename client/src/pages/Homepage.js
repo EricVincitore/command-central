@@ -51,8 +51,7 @@ class Homepage extends Component {
     event.preventDefault();
     this.edhRec();
     this.commandZone();
-    // this.cc();
-    
+    this.cc();
   };
 
 
@@ -147,7 +146,7 @@ class Homepage extends Component {
                           
                         <ListItem key = {article.title}>
                           <a href={article.link} target="_blank" rel="noopener noreferrer">
-                          <img className="articleImg" src = {article.img} alt={article.title}/>
+                          <img className="articleImg CCImage" src = {article.img} alt={article.title}/>
                           <h4 className="articleH4">{article.title}</h4>
                           </a>
                           <p className="articleP">{article.description}</p>

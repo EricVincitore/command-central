@@ -92,8 +92,9 @@ function apiRoutes (app) {
             $(".article-tile").each(function (i, element) {
 
                 let result = {};
+
                 result.title = $(element).children(".article-tile-contents").children(".article-tile-title").children(".stealth-link").text();
-                result.img = $(element).children(".article-tile-image").children(".card-tile").children(".card-image-tile").attr("style").replace("background-image: url('", "").replace("thumbnail_","").replace("');", "")
+                result.img = $(element).children(".article-tile-image").children().children().children(".article-tile-thumbnail").attr("src");
                 result.description = $(element).children(".article-tile-contents").children(".article-tile-abstract").text();
                 result.link = "https://www.mtggoldfish.com" + $(element).children(".article-tile-contents").children(".article-tile-title").children(".stealth-link").attr("href");
                 articles.push(result)
