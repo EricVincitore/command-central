@@ -26,7 +26,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Serve up static assets (usually on heroku)
+// Serve up static assets (usually on heroku) **check for server issues**
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "client/build")));
 };
@@ -34,7 +34,7 @@ if (process.env.NODE_ENV === "production") {
 const apiRoutes = require("./routes/apiRoutes")
 apiRoutes(app);
 
-
+//connection to database
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/commandCentral');
 
 
