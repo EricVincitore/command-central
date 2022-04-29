@@ -28,7 +28,7 @@ app.use(passport.session());
 
 // Serve up static assets (usually on heroku) **check for server issues*
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "client/build")));
+  app.use(express.static("client/build"));
 };
 
 const apiRoutes = require("./routes/apiRoutes")
