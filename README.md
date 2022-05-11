@@ -8,6 +8,14 @@ Command Central is an information focused app that can be used by commander play
 
 ## Features and Instructions
 
+### Prerequisite Instructions
+
+1. Navigate to the github page then clone hte project using Github's "Code" option.
+
+2. Once cloned run the command "npm install" to install all required dependencies.
+
+3. After all dependencies have been installed run the command "npm start" to start he application.
+
 ### Homepage
 When the user navigates to his page they will be able to get the most recent articles from EDHRec, The Command Zone and Commander Clash. 
 
